@@ -188,9 +188,452 @@
   @media(max-width:860px){
     .sidebar{display:none;} .main{margin-left:0;} .content{padding:32px 24px;} .page-hero{padding:40px 24px;} .progress{left:0;}
   }
+
+  /* ── MOBILE NAV ── */
+  .mob-bar {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 52px; background: var(--slate-dark);
+    align-items: center; justify-content: space-between;
+    padding: 0 20px; z-index: 300;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .mob-bar-brand {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #fff;
+  }
+
+  .mob-burger {
+    display: flex; flex-direction: column;
+    gap: 5px; cursor: pointer; padding: 4px;
+    background: none; border: none;
+  }
+
+  .mob-burger span {
+    display: block; width: 22px; height: 1.5px;
+    background: #fff; border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .mob-drawer {
+    position: fixed; top: 0; left: 0;
+    width: 280px; height: 100vh;
+    background: var(--slate-dark);
+    z-index: 400; transform: translateX(-100%);
+    transition: transform 0.28s cubic-bezier(0.22,1,0.36,1);
+    overflow-y: auto;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .mob-drawer.open { transform: translateX(0); }
+
+  .mob-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 350; opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s;
+  }
+
+  .mob-overlay.open { opacity: 1; pointer-events: all; }
+
+  .mob-drawer-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center;
+    justify-content: space-between;
+  }
+
+  .mob-drawer-brand {
+    font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--slate-light);
+  }
+
+  .mob-close {
+    background: none; border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 20px; cursor: pointer;
+    line-height: 1; padding: 0;
+  }
+
+  @media(max-width:860px) {
+    .mob-bar { display: flex; }
+    .main { margin-left: 0; padding-top: 52px; }
+    .progress { left: 0; top: 52px; }
+    .content { padding: 32px 20px; }
+    .page-hero { padding: 36px 20px 32px; }
+    .page-hero h1 { font-size: 26px; }
+    .bp-grid { grid-template-columns: 1fr; }
+    .pflow { flex-direction: column; }
+    .pfi { border-right: none; border-bottom: 1px solid var(--rule); }
+    .pfi:last-child { border-bottom: none; }
+  }
+
+  /* ── ARDENT CTA CALLOUT ── */
+  .ardent-cta {
+    position: relative;
+    background: linear-gradient(180deg, rgba(6,10,20,0.98) 0%, rgba(3,6,14,1) 100%);
+    border: 1px solid rgba(122,144,164,0.18);
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin: 28px 0;
+    cursor: default;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 80px rgba(57,102,255,0.06);
+    transition: transform 260ms cubic-bezier(0.22,1,0.36,1), box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .ardent-cta:hover {
+    transform: translateY(-2px);
+    border-color: rgba(154,180,255,0.22);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.38), 0 0 80px rgba(57,102,255,0.1);
+  }
+
+  .ardent-cta-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.15));
+    opacity: 0.18; pointer-events: none; z-index: 0;
+  }
+
+  .ardent-cta-noise {
+    position: absolute; inset: 0;
+    opacity: 0.04;
+    background-image: radial-gradient(rgba(255,255,255,0.2) 0.5px, transparent 0.7px);
+    background-size: 10px 10px;
+    pointer-events: none; z-index: 0;
+  }
+
+  .ardent-cta-ring1 {
+    position: absolute; width: 340px; height: 340px;
+    left: -12%; top: 10%; border-radius: 50%;
+    border: 1px solid rgba(130,150,255,0.08);
+    pointer-events: none; z-index: 0;
+  }
+
+  .ardent-cta-ring2 {
+    position: absolute; width: 260px; height: 260px;
+    right: -6%; bottom: -20%; border-radius: 50%;
+    border: 1px solid rgba(130,150,255,0.06);
+    pointer-events: none; z-index: 0;
+  }
+
+  .ardent-cta-spotlight {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 1;
+    opacity: 0.5;
+    background: radial-gradient(600px circle at 50% 50%,
+      rgba(85,125,255,0.1),
+      rgba(85,125,255,0.04) 40%,
+      transparent 70%);
+    transition: opacity 220ms ease;
+  }
+
+  .ardent-cta:hover .ardent-cta-spotlight { opacity: 1; }
+
+  .ardent-cta-inset {
+    position: absolute; inset: 0; border-radius: 16px;
+    box-shadow: 0 0 0 1px rgba(154,180,255,0.06) inset;
+    transition: box-shadow 240ms ease;
+    pointer-events: none; z-index: 2;
+  }
+
+  .ardent-cta:hover .ardent-cta-inset {
+    box-shadow: 0 0 0 1px rgba(154,180,255,0.2) inset, 0 0 32px rgba(94,131,255,0.08) inset;
+  }
+
+  .ardent-cta-body {
+    position: relative; z-index: 3;
+  }
+
+  .ardent-cta-eye {
+    font-size: 9.5px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--slate-light); margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .ardent-cta-orb {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    background: radial-gradient(circle, rgba(184,204,255,1) 0%, rgba(114,146,255,1) 50%, rgba(114,146,255,0.2) 100%);
+    box-shadow: 0 0 10px rgba(114,146,255,0.6);
+    animation: orbPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes orbPulse {
+    0% { transform: scale(0.92); opacity: 0.8; }
+    50% { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(0.92); opacity: 0.8; }
+  }
+
+  .ardent-cta h3 {
+    font-size: 20px; font-weight: 500;
+    color: rgba(243,246,255,0.98); margin-bottom: 8px;
+    letter-spacing: -0.02em; line-height: 1.25;
+    text-transform: none;
+    transition: color 220ms ease;
+  }
+
+  .ardent-cta:hover h3 { color: rgba(248,250,255,1); }
+
+  .ardent-cta p {
+    font-size: 13.5px; color: rgba(196,205,224,0.8);
+    max-width: 460px; line-height: 1.65;
+    margin: 0 0 22px !important;
+    transition: color 220ms ease;
+  }
+
+  .ardent-cta:hover p { color: rgba(204,214,235,0.88); }
+
+  .ardent-cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(108,140,255,0.08);
+    border: 1px solid rgba(170,190,255,0.16);
+    color: rgba(244,247,255,0.95); font-size: 13.5px; font-weight: 500;
+    padding: 11px 20px; border-radius: 999px;
+    text-decoration: none;
+    transition: all 260ms cubic-bezier(0.22,1,0.36,1);
+    font-family: var(--font);
+    line-height: 1;
+  }
+
+  .ardent-cta-btn:hover {
+    background: rgba(108,140,255,0.16);
+    border-color: rgba(176,198,255,0.28);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px rgba(101,136,255,0.12);
+  }
+
+  .ardent-cta-btn .btn-arrow {
+    display: inline-block;
+    transition: transform 260ms cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .ardent-cta-btn:hover .btn-arrow { transform: rotate(-45deg) translateX(2px); }
+
+
+
+  /* ── PRICING SECTION ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 16px; margin: 24px 0;
+  }
+
+  @media(max-width:860px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .ardent-cta { padding: 24px 20px; cursor: auto; }
+  }
+
+  .pricing-card {
+    border: 1px solid var(--rule);
+    border-radius: 12px; overflow: hidden;
+    background: var(--white);
+    display: flex; flex-direction: column;
+  }
+
+  .pricing-card.featured {
+    border-color: var(--slate);
+    background: var(--slate-dark);
+    color: #fff;
+  }
+
+  .pricing-card-head {
+    padding: 24px 24px 20px;
+    border-bottom: 1px solid var(--rule-light);
+  }
+
+  .pricing-card.featured .pricing-card-head {
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .pricing-tier {
+    font-size: 9.5px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--slate-light); margin-bottom: 10px;
+  }
+
+  .pricing-card.featured .pricing-tier { color: var(--slate-light); }
+
+  .pricing-amount {
+    font-size: 28px; font-weight: 600;
+    color: var(--ink); letter-spacing: -0.02em;
+    line-height: 1; margin-bottom: 4px;
+  }
+
+  .pricing-card.featured .pricing-amount { color: #fff; }
+
+  .pricing-usd {
+    font-size: 12px; color: var(--muted);
+    font-family: var(--font-mono); margin-bottom: 8px;
+  }
+
+  .pricing-card.featured .pricing-usd { color: rgba(255,255,255,0.35); }
+
+  .pricing-desc {
+    font-size: 12.5px; color: var(--muted); line-height: 1.5;
+  }
+
+  .pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.45); }
+
+  .pricing-card-body {
+    padding: 20px 24px; flex: 1;
+  }
+
+  .pricing-items {
+    list-style: none; display: flex;
+    flex-direction: column; gap: 9px;
+  }
+
+  .pricing-items li {
+    font-size: 13px; color: var(--slate-mid);
+    display: flex; gap: 10px; align-items: flex-start;
+    line-height: 1.5;
+  }
+
+  .pricing-card.featured .pricing-items li { color: rgba(255,255,255,0.6); }
+
+  .pricing-items li .pcheck {
+    color: var(--success-text); font-size: 12px;
+    flex-shrink: 0; margin-top: 2px;
+  }
+
+  .pricing-card.featured .pricing-items li .pcheck { color: var(--slate-light); }
+
+  .pricing-items li.inherited { opacity: 0.5; }
+
+  .pricing-card-foot {
+    padding: 16px 24px 24px;
+  }
+
+  .pricing-btn {
+    display: block; width: 100%;
+    padding: 12px 20px; border-radius: 8px;
+    text-align: center; font-size: 13.5px;
+    font-weight: 600; text-decoration: none;
+    transition: all 0.2s; font-family: var(--font);
+    letter-spacing: 0.01em;
+  }
+
+  .pricing-btn.email {
+    background: var(--off-white-2);
+    color: var(--slate-dark);
+    border: 1px solid var(--rule);
+  }
+
+  .pricing-btn.email:hover {
+    background: var(--rule);
+  }
+
+  .pricing-btn.whatsapp {
+    background: #25D366;
+    color: #fff; border: 1px solid #1fbd5a;
+  }
+
+  .pricing-btn.whatsapp:hover { background: #1fbd5a; }
+
+  .pricing-btn.whatsapp-priority {
+    background: var(--slate-dark);
+    color: #fff; border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .pricing-card.featured .pricing-btn.whatsapp-priority {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .pricing-btn.whatsapp-priority:hover {
+    background: var(--slate);
+  }
+
+  .pricing-card.featured .pricing-btn.whatsapp-priority:hover {
+    background: rgba(255,255,255,0.18);
+  }
+
+  .pricing-note {
+    font-size: 11.5px; color: var(--muted);
+    text-align: center; margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  .revision-def {
+    background: var(--off-white-2);
+    border: 1px solid var(--rule);
+    border-radius: 8px; padding: 14px 18px;
+    margin: 16px 0; font-size: 13px;
+    color: var(--slate-mid); line-height: 1.65;
+  }
+
+  .revision-def strong { color: var(--ink); }
+
 </style>
 </head>
 <body>
+
+
+<!-- MOBILE NAV -->
+<div class="mob-bar">
+  <div class="mob-bar-brand">Ardent</div>
+  <button class="mob-burger" id="burger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<div class="mob-overlay" id="overlay"></div>
+
+<div class="mob-drawer" id="drawer">
+  <div class="mob-drawer-header">
+    <div class="mob-drawer-brand">YOSHI(studio) Guide</div>
+    <button class="mob-close" id="drawerClose">&#x2715;</button>
+  </div>
+
+  <div class="nav-group">Getting Started</div>
+  <a href="#access" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Logging In</a>
+  <a href="#canvas" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Canvas Overview</a>
+
+  <div class="nav-group">Homepage</div>
+  <a href="#hero-text" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Hero Text</a>
+  <a href="#hero-image" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Hero Image</a>
+  <a href="#services-showcase" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Services Showcase</a>
+  <a href="#services-edit" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Editing a Service</a>
+  <a href="#services-add" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Adding a New Service</a>
+  <a href="#about-text" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>About Text</a>
+  <a href="#insights" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>(in)sights Feed</a>
+  <a href="#insights-images" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Updating Feed Images</a>
+  <a href="#publishing" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Publishing</a>
+  <a href="#do-not-touch" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Do Not Touch</a>
+
+  <div class="nav-group">Services Page</div>
+  <a href="#services-page-overview" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Overview</a>
+  <a href="#services-page-count" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Updating the Count</a>
+  <a href="#services-detail-page" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Service Detail Page</a>
+
+  <div class="nav-group">Blog Page</div>
+  <a href="#blog-overview" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Overview</a>
+  <a href="#blog-desktop" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Desktop Feed Controls</a>
+  <a href="#blog-mobile" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Mobile Feed</a>
+  <a href="#blog-workflow" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Publishing Workflow</a>
+
+  <div class="nav-group">About Page</div>
+  <a href="#about-overview" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Overview</a>
+  <a href="#about-cycler" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Headline Cycler</a>
+  <a href="#about-canvas" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Canvas Edits</a>
+
+  <div class="nav-group">Contact Page</div>
+  <a href="#contact-overview" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Overview</a>
+  <a href="#contact-text" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Editing Text</a>
+  <a href="#contact-form" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Editing the Form</a>
+
+  <div class="nav-group">Retainer</div>
+  <a href="#retainer" class="nav-link" onclick="closeDrawer()"><span class="nd"></span>Plans and Pricing</a>
+
+  <div style="height:40px"></div>
+</div>
 
 <div class="progress"><div class="progress-fill" id="prog"></div></div>
 
@@ -490,21 +933,23 @@
       <div class="callout tip"><div class="ci">💡</div><div class="cb"><strong>No Columns or Cursor on Mobile</strong><p>The mobile version is always a stacked vertical list, there is no grid layout or hover cursor. This is by design.</p></div></div>
     </div>
 
-    <div class="section" id="insights-images">
-      <div class="section-eye">Homepage · (in)sights</div>
-      <h2>Updating Feed Images</h2>
-      <p>After publishing a new post on Substack, follow this workflow to ensure the homepage feed images are correct.</p>
-      <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Publish your post on Substack first</strong><p>The feed updates automatically within a few minutes of publishing.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Open the Framer editor and go to the Home page</strong><p>Scroll down to the (in)sights section on the Desktop canvas.</p></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click the feed grid to select the SubstackFeed component</strong><p>The right panel shows Image 1, Image 2, Image 3 slots alongside the other controls.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: SubstackFeed component selected on the Desktop canvas, right panel showing Image 1, 2, 3 upload slots]</p></div></div></div>
-        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Check whether the images look correct</strong><p>If the RSS images look fine, no action is needed. If an image is missing, slow to load, or badly cropped, upload an override for that slot.</p></div></div>
-        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Click Upload next to the relevant Image slot</strong><p>Image 1 = first card position, Image 2 = second, Image 3 = third. Upload a clean, well-cropped image.</p></div></div>
-        <div class="step"><div class="snum">6</div><div class="sbody"><strong>Switch to the Phone breakpoint and update the Mobile component</strong><p>Select the <span class="pill">SubstackFeedMobile</span> component and update its image slots independently.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Phone breakpoint canvas with SubstackFeedMobile component selected, right panel showing Mobile image upload slots]</p></div></div></div>
-        <div class="step"><div class="snum">7</div><div class="sbody"><strong>Publish</strong><p>Click <span class="pill">Publish</span>. Changes go live immediately.</p></div></div>
+    <div class="ardent-cta" data-cta="true">
+      <div class="ardent-cta-grid"></div>
+      <div class="ardent-cta-noise"></div>
+      <div class="ardent-cta-ring1"></div>
+      <div class="ardent-cta-ring2"></div>
+      <div class="ardent-cta-spotlight" data-spotlight="true"></div>
+      <div class="ardent-cta-inset"></div>
+      <div class="ardent-cta-body">
+        <div class="ardent-cta-eye"><span class="ardent-cta-orb"></span>Ardent · Retainer Services</div>
+        <h3>Want a custom integration like this?</h3>
+        <p>The (in)sights feed is a proprietary Ardent-built system. We can build custom components, data integrations, and interactive features tailored specifically to your brand and workflow.</p>
+        <a href="https://wa.me/PLACEHOLDER" target="_blank" class="ardent-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.126 1.526 5.855L.057 23.882l6.19-1.624A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.724.977.995-3.63-.234-.373A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/></svg>
+          Let's Connect
+          <span class="btn-arrow">→</span>
+        </a>
       </div>
-      <div class="callout tip"><div class="ci">💡</div><div class="cb"><strong>Leaving an image slot empty is perfectly fine</strong><p>If you don't upload an override, the component automatically tries the RSS image, then the fallback. Only upload manually when the automatic result looks wrong.</p></div></div>
-      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>If you increase Posts beyond 3</strong><p>Additional image slots (Image 4, 5, 6) appear in the panel. Check those slots too and remember to update both Desktop and Mobile components.</p></div></div>
     </div>
 
     <!-- PUBLISHING -->
@@ -544,19 +989,23 @@
     </div>
 
 
-    <hr class="div"/>
-
-    <!-- SERVICES PAGE -->
-    <div class="section" id="services-page-overview">
-      <div class="ctag">③ Services Page</div>
-      <div class="section-eye">Services Page</div>
-      <h2>Services Page Overview</h2>
-      <p>The Services page displays a 2-column grid of all published services, each card showing the Service Thumbnail and Service Name pulled automatically from the <span class="pill">Services(Beta)</span> CMS collection.</p>
-      <p>This page is almost entirely self-managing. When a new service is created in the CMS and published, it appears on this page automatically. The only manual task is updating the service count displayed in the top-right corner of the page heading.</p>
-
-      <div class="callout success"><div class="ci">✅</div><div class="cb"><strong>What updates automatically</strong><p>Service cards, thumbnails, names, and links to individual service pages all update automatically when CMS items are published or removed. No canvas editing is required.</p></div></div>
-
-      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>One manual task: the service count</strong><p>The number shown in brackets next to the page heading (e.g. "(6)") does not update automatically. It must be updated manually using the <span class="pill">ServiceCount</span> component whenever a service is added or removed.</p></div></div>
+    <div class="ardent-cta" data-cta="true">
+      <div class="ardent-cta-grid"></div>
+      <div class="ardent-cta-noise"></div>
+      <div class="ardent-cta-ring1"></div>
+      <div class="ardent-cta-ring2"></div>
+      <div class="ardent-cta-spotlight" data-spotlight="true"></div>
+      <div class="ardent-cta-inset"></div>
+      <div class="ardent-cta-body">
+        <div class="ardent-cta-eye"><span class="ardent-cta-orb"></span>Ardent · Retainer Services</div>
+        <h3>Your blog deserves a stronger visual system.</h3>
+        <p>Manual image management across 15 post slots on two components is a lot to keep on top of. On an Ardent retainer, we handle every post update, image assignment, and feed check for you.</p>
+        <a href="https://wa.me/PLACEHOLDER" target="_blank" class="ardent-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.126 1.526 5.855L.057 23.882l6.19-1.624A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.724.977.995-3.63-.234-.373A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/></svg>
+          Let's Connect
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
     </div>
 
     <div class="section" id="services-page-count">
@@ -742,132 +1191,42 @@
     </div>
 
 
-    <hr class="div"/>
-
-    <!-- ABOUT PAGE -->
-    <div class="section" id="about-overview">
-      <div class="ctag">⑤ About Page</div>
-      <div class="section-eye">About Page</div>
-      <h2>About Page Overview</h2>
-      <p>The About page is a mix of a custom Ardent-built TSX component and directly editable canvas text. Most content can be updated with a simple double-click on the canvas. The animated headline in the top-right is the only element that requires the right panel.</p>
-
-      <table class="tbl">
-        <thead><tr><th>Section</th><th>How to edit</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>"About" heading</td><td>Double-click directly on canvas</td><td>Plain static text layer</td></tr>
-          <tr><td>Animated headline</td><td>Right panel, Before, Words, After fields</td><td>InlineTextCycler TSX component</td></tr>
-          <tr><td>Body paragraph</td><td>Double-click directly on canvas</td><td>Directly editable</td></tr>
-          <tr><td>Studio image</td><td>Select on canvas, replace via right panel</td><td>Plain image asset</td></tr>
-          <tr><td>Location strip</td><td>Double-click directly on canvas</td><td>Directly editable</td></tr>
-          <tr><td>Principles heading</td><td>Double-click directly on canvas</td><td>Plain static text layer</td></tr>
-          <tr><td>Principles paragraphs</td><td>Double-click directly on canvas</td><td>3 separate text layers</td></tr>
-          <tr><td>(our) services</td><td>CMS only, auto-updates</td><td>No canvas work needed</td></tr>
-          <tr><td>CTA</td><td>Do not touch</td><td>Shared component</td></tr>
-          <tr><td>Footer</td><td>Do not touch</td><td>Shared component</td></tr>
-        </tbody>
-      </table>
+    <div class="ardent-cta" data-cta="true">
+      <div class="ardent-cta-grid"></div>
+      <div class="ardent-cta-noise"></div>
+      <div class="ardent-cta-ring1"></div>
+      <div class="ardent-cta-ring2"></div>
+      <div class="ardent-cta-spotlight" data-spotlight="true"></div>
+      <div class="ardent-cta-inset"></div>
+      <div class="ardent-cta-body">
+        <div class="ardent-cta-eye"><span class="ardent-cta-orb"></span>Ardent · Retainer Services</div>
+        <h3>The InlineTextCycler is just the beginning.</h3>
+        <p>Ardent builds bespoke interactive components for every client. If you have an idea for how your site should feel or behave, we can engineer it from the ground up.</p>
+        <a href="https://wa.me/PLACEHOLDER" target="_blank" class="ardent-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.126 1.526 5.855L.057 23.882l6.19-1.624A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.724.977.995-3.63-.234-.373A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/></svg>
+          Let's Connect
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
     </div>
 
-    <div class="section" id="about-cycler">
-      <div class="section-eye">About Page</div>
-      <div class="prop-badge">⚙ InlineTextCycler, Built by Ardent</div>
-      <h2>The Animated Headline</h2>
-      <p>The large headline in the top-right of the About page is powered by the InlineTextCycler, a proprietary Ardent-built component that cycles through a list of words inline within a sentence. It supports italic formatting, full typography control, and independent animation settings.</p>
-      <p>The animation only runs on the live site. In the Framer editor the headline appears static, this is expected behaviour.</p>
-
-      <div class="callout info"><div class="ci">💡</div><div class="cb"><strong>There are two separate components</strong><p>The About page uses <span class="pill">InlineTextCycler</span> for Desktop and Tablet, and <span class="pill">InlineTextCyclerMobile</span> for Phone. Both work identically but have independent settings. Always update both when changing the headline content.</p></div></div>
-
-      <h3>How to edit the headline</h3>
-      <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the About page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">/about</span>.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Click the animated headline on the canvas to select it</strong><p>The right panel will show the <span class="pill">InlineTextCycler</span> component controls.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: About page canvas with the headline component selected, right panel showing Before, Words, After fields]</p></div></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Update the Before, Words, and After fields</strong><p>These three fields together build the full headline. See the field guide below for exactly how each works.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right panel closeup showing Before text area, Words field, and After text area with current values]</p></div></div></div>
-        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Switch to the Phone breakpoint and repeat for InlineTextCyclerMobile</strong><p>Select the mobile version of the component and update the same three fields to match.</p></div></div>
-        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Check all breakpoints then Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
+    <div class="ardent-cta" data-cta="true">
+      <div class="ardent-cta-grid"></div>
+      <div class="ardent-cta-noise"></div>
+      <div class="ardent-cta-ring1"></div>
+      <div class="ardent-cta-ring2"></div>
+      <div class="ardent-cta-spotlight" data-spotlight="true"></div>
+      <div class="ardent-cta-inset"></div>
+      <div class="ardent-cta-body">
+        <div class="ardent-cta-eye"><span class="ardent-cta-orb"></span>Ardent · Retainer Services</div>
+        <h3>Let's figure it out together.</h3>
+        <p>Every YOSHI(studio) retainer is personalised to where you are and where you want to go. Reach out and we'll recommend the right starting point.</p>
+        <a href="https://wa.me/PLACEHOLDER" target="_blank" class="ardent-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.126 1.526 5.855L.057 23.882l6.19-1.624A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.724.977.995-3.63-.234-.373A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/></svg>
+          Let's Connect
+          <span class="btn-arrow">→</span>
+        </a>
       </div>
-
-      <h3>Content fields</h3>
-      <table class="tbl">
-        <thead><tr><th>Field</th><th>What it controls</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>Before</td><td>The static text that appears before the cycling word</td><td>Use <span class="pill">_text_</span> around any word to make it italic. Use <span class="pill">
-</span> for a line break.</td></tr>
-          <tr><td>Words</td><td>The comma-separated list of words that cycle in place</td><td>Each word separated by a comma. e.g. <span class="pill">CONTENT CREATION, BRAND STRATEGY, CREATIVE DIRECTION</span></td></tr>
-          <tr><td>After</td><td>The static text that appears after the cycling word</td><td>Same italic and line break rules as Before.</td></tr>
-        </tbody>
-      </table>
-
-      <div class="best-practice">
-        <div class="bph">How to use italic formatting</div>
-        <ul>
-          <li><strong>Wrap any word or phrase in underscores</strong> to make it italic. For example: <span class="pill">A _MULTIDISCIPLINARY_ STUDIO</span> renders "MULTIDISCIPLINARY" in italic.</li>
-          <li><strong>Line breaks</strong> are created by pressing Enter inside the text area field, or by typing <span class="pill">
-</span>.</li>
-          <li><strong>The cycling word itself cannot be italicised</strong> via this method, its style is controlled separately by the Cycle Wt and Cycle Color fields.</li>
-        </ul>
-      </div>
-
-      <h3>Typography and animation controls</h3>
-      <table class="tbl">
-        <thead><tr><th>Control</th><th>What it does</th><th>Default</th><th>Guidance</th></tr></thead>
-        <tbody>
-          <tr><td>Interval</td><td>Seconds between each word cycling</td><td><span class="val">2.5</span></td><td><span class="badge opt">Adjustable</span></td></tr>
-          <tr><td>Speed</td><td>Duration of the transition animation in seconds</td><td><span class="val">0.45</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Font</td><td>Font family used across all text in the component</td><td><span class="val">Inter</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Size</td><td>Font size in px</td><td><span class="val">39 (desktop) / 24 (mobile)</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Line Height</td><td>Line height multiplier</td><td><span class="val">1.02</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Tracking</td><td>Letter spacing in px</td><td><span class="val">-0.4</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Uppercase</td><td>Forces all text to uppercase</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
-          <tr><td>Base Wt</td><td>Font weight of the static (Before/After) text</td><td><span class="val">400</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Base Color</td><td>Colour of the static text</td><td><span class="val">#F3EEE8</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Cycle Wt</td><td>Font weight of the cycling word</td><td><span class="val">700</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Cycle Color</td><td>Colour of the cycling word</td><td><span class="val">#F3EEE8</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Italic Wt</td><td>Font weight of italic-formatted text</td><td><span class="val">400</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Italic Color</td><td>Colour of italic-formatted text</td><td><span class="val">#F3EEE8</span></td><td><span class="badge keep">Keep default</span></td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout danger"><div class="ci">🚫</div><div class="cb"><strong>Do not edit the TSX code</strong><p>All changes to the headline must be made through the right panel fields only. Editing the component code will break the animation and formatting logic.</p></div></div>
-    </div>
-
-    <div class="section" id="about-canvas">
-      <div class="section-eye">About Page</div>
-      <h2>Canvas Edits</h2>
-      <p>All other editable elements on the About page are plain text layers or image assets that can be updated directly on the canvas.</p>
-
-      <h3>Text layers, double-click to edit</h3>
-      <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Scroll to the element you want to edit on the canvas</strong><p>Or find it in the Layers panel on the left.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the text to enter edit mode</strong><p>Type your updated copy directly.</p></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click outside to deselect, check all breakpoints, then Publish</strong><p>Click <span class="pill">Publish</span> when confirmed.</p></div></div>
-      </div>
-
-      <div class="best-practice">
-        <div class="bph">Best Practice, About Page Text</div>
-        <ul>
-          <li><strong>Body paragraph:</strong> Keep under 180 characters. This sits directly below the animated headline and acts as a supporting statement, not a full description.</li>
-          <li><strong>Location strip:</strong> Format as "BASED IN [CITY] + [CITY] / WORKING [SCOPE]". Keep it short and factual.</li>
-          <li><strong>Principles paragraphs:</strong> Each paragraph should be a standalone thought, 60 to 100 words. Avoid bullet points, these are editorial statements, not lists.</li>
-        </ul>
-      </div>
-
-      <h3>Replacing the studio image</h3>
-      <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Click the studio image on the canvas to select it</strong><p>A blue selection box appears around the image.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Studio image selected on canvas with right panel showing the image asset field]</p></div></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>In the right panel click the image thumbnail to open the image editor</strong><p>Click the preview inside the popup and upload your new image.</p></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Check all breakpoints then Publish</strong><p>Click <span class="pill">Publish</span> when confirmed.</p></div></div>
-      </div>
-
-      <div class="bp-box">
-        <div class="bph">Best Practice, Studio Image</div>
-        <ul>
-          <li><strong>Resolution:</strong> Minimum 2000px wide. The image spans a large portion of the page on desktop.</li>
-          <li><strong>Format:</strong> JPG or WebP. Keep under 3MB.</li>
-          <li><strong>Content:</strong> Behind-the-scenes, studio environment, or editorial process imagery works best. Avoid overly posed or product-focused shots here.</li>
-        </ul>
-      </div>
-
-      <div class="callout danger"><div class="ci">🚫</div><div class="cb"><strong>(our) services section, do not touch</strong><p>The three service cards below the Principles section pull automatically from the <span class="pill">Services(Beta)</span> CMS collection. No canvas editing is required. Any changes to service content should be made through the CMS as documented in the Homepage Services section of this guide.</p></div></div>
     </div>
 
 
@@ -995,7 +1354,7 @@
       <h2>Editing the Contact Form</h2>
       <p>Each form field has two editable elements: the label shown above the field (editable on canvas) and the placeholder text shown inside the field (editable via the right panel). Both are optional to update but useful for keeping the form copy fresh and relevant.</p>
 
-      <h3>Field labels — do not edit</h3>
+      <h3>Field labels, do not edit</h3>
       <div class="callout danger"><div class="ci">🚫</div><div class="cb"><strong>Field labels must never be changed</strong><p>The bold labels above each field (Name, Contact Number, Email, Brand Name, Requirement, Reason for Reaching Out) are directly tied to the Notion column headers. Editing them creates a mismatch between what the form shows and how submissions are mapped in Notion, making responses difficult to read and process. Leave all field labels exactly as designed.</p></div></div>
 
       <h3>Editing placeholder text inside a field</h3>
@@ -1017,7 +1376,7 @@
         <tbody>
           <tr><td>Name</td><td>Text input</td><td>Yes</td><td>Jane Smith</td></tr>
           <tr><td>Contact Number</td><td>Text input</td><td>Yes</td><td>Number with Country Code</td></tr>
-          <tr><td>Email</td><td>Text input</td><td>Yes</td><td>jane@smith.com</td></tr>
+          <tr><td>Email</td><td>Text input</td><td>Yes</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d5bfb4bbb095a6b8bca1bdfbb6bab8">[email&#160;protected]</a></td></tr>
           <tr><td>Brand Name</td><td>Text input</td><td>Yes</td><td>Please include links to Website and Social Accounts (if available)</td></tr>
           <tr><td>Requirement</td><td>Text area</td><td>Yes</td><td>E-Commerce/Social Media/Campaigns</td></tr>
           <tr><td>Reason for Reaching Out</td><td>Text area</td><td>Yes</td><td>Please include Budget, Expectations and Timelines</td></tr>
@@ -1027,34 +1386,191 @@
       <div class="callout tip"><div class="ci">💡</div><div class="cb"><strong>How the form backend works</strong><p>When a visitor submits the form, Make receives the data via webhook and automatically creates a new row in the Yoshi Notion contact table with all field values mapped to the correct columns. No manual action is required to receive or process submissions.</p></div></div>
     </div>
 
+
+    <hr class="div"/>
+
+    <!-- RETAINER -->
+    <div class="section" id="retainer">
+      <div class="ctag">⑦ Retainer Plans</div>
+      <div class="section-eye">Ardent · YOSHI(studio)</div>
+      <h2>Plans and Pricing</h2>
+      <p>Every website Ardent builds is backed by an ongoing retainer plan. Your site is a living product, it needs consistent updates, technical maintenance, and creative refinement to stay sharp. Choose the plan that fits where YOSHI(studio) is today.</p>
+
+      <div class="revision-def">
+        <strong>What is a revision?</strong> A revision is one complete request submitted by the client and implemented by Ardent. A single request may include multiple related changes across the site. Each subsequent round of feedback following implementation counts as a new revision. Revisions reset on the <strong>1st of every month.</strong>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- FOUNDATION -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <div class="pricing-tier">Foundation</div>
+            <div class="pricing-amount">₹15,000</div>
+            <div class="pricing-usd">~$180 / month</div>
+            <div class="pricing-desc">For studios that need their site kept current and content fresh.</div>
+          </div>
+          <div class="pricing-card-body">
+            <ul class="pricing-items">
+              <li><span class="pcheck">✓</span>3 revision sessions per month</li>
+              <li><span class="pcheck">✓</span>CMS updates, services, images, copy</li>
+              <li><span class="pcheck">✓</span>Hero image and copy updates</li>
+              <li><span class="pcheck">✓</span>About and contact page copy updates</li>
+              <li><span class="pcheck">✓</span>Substack feed image management</li>
+              <li><span class="pcheck">✓</span>48 hour response time</li>
+              <li><span class="pcheck">✓</span>Email support</li>
+            </ul>
+          </div>
+          <div class="pricing-card-foot">
+            <a href="/cdn-cgi/l/email-protection#ea828f868685aa8b988e8f849ec4898587" class="pricing-btn email">Get Started via Email</a>
+          </div>
+        </div>
+
+        <!-- STUDIO -->
+        <div class="pricing-card featured">
+          <div class="pricing-card-head">
+            <div class="pricing-tier">Studio ✦ Most Popular</div>
+            <div class="pricing-amount">₹30,000</div>
+            <div class="pricing-usd">~$360 / month</div>
+            <div class="pricing-desc">For studios actively growing their digital presence with new features and content.</div>
+          </div>
+          <div class="pricing-card-body">
+            <ul class="pricing-items">
+              <li><span class="pcheck">✓</span>6 revision sessions per month</li>
+              <li><span class="pcheck">✓</span>Everything in Foundation</li>
+              <li><span class="pcheck">✓</span>Canvas edits across all pages</li>
+              <li><span class="pcheck">✓</span>1 custom TSX component per month</li>
+              <li><span class="pcheck">✓</span>Breakpoint QA on all updates</li>
+              <li><span class="pcheck">✓</span>24 hour response time</li>
+              <li><span class="pcheck">✓</span>WhatsApp support</li>
+            </ul>
+          </div>
+          <div class="pricing-card-foot">
+            <a href="https://wa.me/PLACEHOLDER" target="_blank" class="pricing-btn whatsapp-priority">
+              Connect on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- PARTNER -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <div class="pricing-tier">Partner</div>
+            <div class="pricing-amount">₹42,000</div>
+            <div class="pricing-usd">~$504 / month</div>
+            <div class="pricing-desc">For studios treating their site as a serious business asset and brand platform.</div>
+          </div>
+          <div class="pricing-card-body">
+            <ul class="pricing-items">
+              <li><span class="pcheck">✓</span>Unlimited revision sessions</li>
+              <li><span class="pcheck">✓</span>Everything in Studio</li>
+              <li><span class="pcheck">✓</span>1 new page build per month</li>
+              <li><span class="pcheck">✓</span>New integrations and webhooks</li>
+              <li><span class="pcheck">✓</span>Monthly 30 min strategy call</li>
+              <li><span class="pcheck">✓</span>Quarterly site health and SEO audit</li>
+              <li><span class="pcheck">✓</span>Same day response</li>
+              <li><span class="pcheck">✓</span>Priority WhatsApp support</li>
+            </ul>
+          </div>
+          <div class="pricing-card-foot">
+            <a href="https://wa.me/PLACEHOLDER" target="_blank" class="pricing-btn whatsapp">
+              Connect on WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="pricing-note">All plans are billed monthly. Custom components and integrations outside of a retainer are scoped per project. Prices are exclusive of applicable taxes.</p>
+
+      <div class="ardent-cta" data-cta="true" style="margin-top:32px">
+        <div class="ardent-cta-grid"></div>
+        <div class="ardent-cta-noise"></div>
+        <div class="ardent-cta-ring1"></div>
+        <div class="ardent-cta-ring2"></div>
+        <div class="ardent-cta-spotlight" data-spotlight="true"></div>
+        <div class="ardent-cta-inset"></div>
+        <div class="ardent-cta-body">
+          <div class="ardent-cta-eye"><span class="ardent-cta-orb"></span>Not sure which plan is right for you?</div>
+          <h3>Let's figure it out together.</h3>
+          <p>Every YOSHI(studio) retainer is personalised to where you are and where you want to go. Reach out and we'll recommend the right starting point.</p>
+          <a href="https://wa.me/PLACEHOLDER" target="_blank" class="ardent-cta-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.126 1.526 5.855L.057 23.882l6.19-1.624A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.724.977.995-3.63-.234-.373A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/></svg>
+            Let's Connect
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   window.addEventListener('scroll', () => {
     const el = document.documentElement;
     document.getElementById('prog').style.width = (el.scrollTop / (el.scrollHeight - el.clientHeight) * 100) + '%';
   });
   const sections = document.querySelectorAll('.section[id]');
   const links = document.querySelectorAll('.nav-link[href^="#"]');
-  new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        links.forEach(l => l.classList.remove('active'));
-        const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
-        if (a) a.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-15% 0px -75% 0px' }).observe
+  // Active nav
   sections.forEach(s => new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         links.forEach(l => l.classList.remove('active'));
-        const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
-        if (a) a.classList.add('active');
+        document.querySelectorAll(`.nav-link[href="#${e.target.id}"]`).forEach(a => a.classList.add('active'));
       }
     });
   }, { rootMargin: '-15% 0px -75% 0px' }).observe(s));
+
+  // Mobile drawer
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  const overlay = document.getElementById('overlay');
+  const drawerClose = document.getElementById('drawerClose');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', openDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+
+  // Ardent CTA cards - mouse spotlight tracking
+  document.querySelectorAll('.ardent-cta').forEach(cta => {
+    const spotlight = cta.querySelector('[data-spotlight]');
+
+    cta.addEventListener('mouseleave', () => {
+      if (spotlight) spotlight.style.background = '';
+    });
+
+    cta.addEventListener('mousemove', (e) => {
+      if (!spotlight) return;
+      const rect = cta.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      spotlight.style.background = `
+        radial-gradient(600px circle at ${x}px ${y}px,
+          rgba(85,125,255,0.18),
+          rgba(85,125,255,0.07) 28%,
+          rgba(85,125,255,0.01) 50%,
+          transparent 68%),
+        radial-gradient(200px circle at ${x}px ${y}px,
+          rgba(205,220,255,0.14),
+          rgba(140,170,255,0.05) 38%,
+          transparent 72%)
+      `;
+    });
+  });
 </script>
 </body>
 </html>
