@@ -932,7 +932,6 @@
       </table>
       <div class="callout tip"><div class="ci">💡</div><div class="cb"><strong>No Columns or Cursor on Mobile</strong><p>The mobile version is always a stacked vertical list, there is no grid layout or hover cursor. This is by design.</p></div></div>
     </div>
-
     <div class="ardent-cta" data-cta="true">
       <div class="ardent-cta-grid"></div>
       <div class="ardent-cta-noise"></div>
@@ -952,7 +951,23 @@
       </div>
     </div>
 
-    <!-- PUBLISHING -->
+    <div class="section" id="insights-images">
+      <div class="section-eye">Homepage · (in)sights</div>
+      <h2>Updating Feed Images</h2>
+      <p>After publishing a new post on Substack, follow this workflow to ensure the homepage feed images are correct.</p>
+      <div class="steps">
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Publish your post on Substack first</strong><p>The feed updates automatically within a few minutes of publishing.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Open the Framer editor and go to the Home page</strong><p>Scroll down to the (in)sights section on the Desktop canvas.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click the feed grid to select the SubstackFeed component</strong><p>The right panel shows Image 1, Image 2, Image 3 slots alongside the other controls.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: SubstackFeed component selected on Desktop canvas, right panel showing Image 1, 2, 3 upload slots]</p></div></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Check whether the images look correct</strong><p>If the RSS images look fine, no action needed. If an image is missing, slow to load, or badly cropped, upload an override.</p></div></div>
+        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Click Upload next to the relevant Image slot</strong><p>Image 1 = first card position, Image 2 = second, Image 3 = third. Upload a clean, well-cropped image.</p></div></div>
+        <div class="step"><div class="snum">6</div><div class="sbody"><strong>Switch to the Phone breakpoint and update the Mobile component</strong><p>Select the <span class="pill">SubstackFeedMobile</span> component and update its image slots independently.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Phone breakpoint canvas with SubstackFeedMobile selected, right panel showing Mobile image upload slots]</p></div></div></div>
+        <div class="step"><div class="snum">7</div><div class="sbody"><strong>Publish</strong><p>Click <span class="pill">Publish</span>. Changes go live immediately.</p></div></div>
+      </div>
+      <div class="callout tip"><div class="ci">💡</div><div class="cb"><strong>Leaving an image slot empty is perfectly fine</strong><p>If you don't upload an override, the component automatically tries the RSS image, then the fallback. Only upload manually when the automatic result looks wrong.</p></div></div>
+      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>If you increase Posts beyond 3</strong><p>Additional image slots (Image 4, 5, 6) appear in the panel. Check those slots too and remember to update both Desktop and Mobile components.</p></div></div>
+    </div>
+
     <div class="section" id="publishing">
       <div class="section-eye">Publishing</div>
       <h2>Publishing Your Changes</h2>
@@ -963,10 +978,9 @@
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Wait for the confirmation</strong><p>The button shows "Saved" when complete. Your changes are now live.</p></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Verify on your live site</strong><p>Open your website in a browser tab and refresh to confirm everything looks correct.</p></div></div>
       </div>
-      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>Framer auto-saves but does not auto-publish</strong><p>Your edits are saved automatically in the editor, but they will not appear on the live website until you click Publish. Always publish at the end of every editing session.</p></div></div>
+      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>Framer auto-saves but does not auto-publish</strong><p>Your edits are saved automatically in the editor but will not appear on the live website until you click Publish. Always publish at the end of every editing session.</p></div></div>
     </div>
 
-    <!-- DO NOT TOUCH -->
     <div class="section" id="do-not-touch">
       <div class="section-eye">Reference</div>
       <h2>Do Not Touch</h2>
@@ -977,9 +991,9 @@
           <tr><td>Code Overrides</td><td>Controls animations like Text Reveal. Removing or altering these breaks scroll-triggered effects on the live site.</td></tr>
           <tr><td>TSX / Code files</td><td>The (in)sights feed and all other Ardent-built components live in code. Editing them will break the components entirely.</td></tr>
           <tr><td>Text styles (H1, H4-B etc.)</td><td>These are global design tokens. Changing one style affects every element using it across the entire site simultaneously.</td></tr>
-          <tr><td>Canvas layout &amp; spacing</td><td>Do not drag, resize, or reposition elements. Only edit text and images using the methods described in this guide.</td></tr>
+          <tr><td>Canvas layout and spacing</td><td>Do not drag, resize, or reposition elements. Only edit text and images using the methods described in this guide.</td></tr>
           <tr><td>Breakpoints</td><td>Do not add or remove breakpoints. The site is built and tested for exactly three: Desktop, Tablet, and Phone.</td></tr>
-          <tr><td>Navigation &amp; Footer</td><td>Shared components across all pages. Any change affects every page simultaneously.</td></tr>
+          <tr><td>Navigation and Footer</td><td>Shared components across all pages. Any change affects every page simultaneously.</td></tr>
           <tr><td>Homepage Hero CMS item</td><td>Exactly one item labelled "hero" must exist. Do not add new items or delete the existing one.</td></tr>
           <tr><td>Draft pages</td><td>Pages marked DRAFT are work in progress. Do not publish or delete them.</td></tr>
           <tr><td>Existing card Filter values</td><td>Each service card is bound to its CMS item via a Service Number filter. Changing an existing card's filter breaks the homepage showcase.</td></tr>
@@ -988,6 +1002,193 @@
       <div class="callout danger"><div class="ci">🚨</div><div class="cb"><strong>If something looks broken, stop and contact Ardent</strong><p>Do not attempt to fix a broken layout yourself. Close the browser tab without publishing and contact your Ardent contact immediately. Framer auto-saves, so publishing a broken state will push it live to your audience.</p></div></div>
     </div>
 
+    <hr class="div"/>
+
+    <!-- SERVICES PAGE -->
+    <div class="ardent-cta" data-cta="true">
+      <div class="ardent-cta-grid"></div>
+      <div class="ardent-cta-noise"></div>
+      <div class="ardent-cta-ring1"></div>
+      <div class="ardent-cta-ring2"></div>
+      <div class="ardent-cta-spotlight" data-spotlight="true"></div>
+      <div class="ardent-cta-inset"></div>
+      <div class="ardent-cta-body">
+        <div class="ardent-cta-eye"><span class="ardent-cta-orb"></span>Ardent · Retainer Services</div>
+        <h3>Leave the complex stuff to us.</h3>
+        <p>Adding a new service involves CMS bindings, canvas layer editing, and multi-step verification. This is exactly what Ardent's retainer covers. Get it done without lifting a finger.</p>
+        <a href="https://wa.me/PLACEHOLDER" target="_blank" class="ardent-cta-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.126 1.526 5.855L.057 23.882l6.19-1.624A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.724.977.995-3.63-.234-.373A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/></svg>
+          Let's Connect
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="section" id="services-page-overview">
+      <div class="ctag">③ Services Page</div>
+      <div class="section-eye">Services Page</div>
+      <h2>Services Page Overview</h2>
+      <p>The Services page displays a 2-column grid of all published services, each card showing the Service Thumbnail and Service Name pulled automatically from the <span class="pill">Services(Beta)</span> CMS collection.</p>
+      <p>This page is almost entirely self-managing. When a new service is created in the CMS and published, it appears on this page automatically. The only manual task is updating the service count displayed in the top-right corner of the page heading.</p>
+      <div class="callout success"><div class="ci">✅</div><div class="cb"><strong>What updates automatically</strong><p>Service cards, thumbnails, names, and links to individual service pages all update automatically when CMS items are published or removed. No canvas editing required.</p></div></div>
+      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>One manual task: the service count</strong><p>The number shown in brackets next to the page heading (e.g. "(6)") does not update automatically. It must be updated manually whenever a service is added or removed.</p></div></div>
+    </div>
+
+    <div class="section" id="services-page-count">
+      <div class="section-eye">Services Page</div>
+      <h2>Updating the Service Count</h2>
+      <p>The number shown in brackets next to the page heading (e.g. "(6)") is a plain text layer on the canvas. It does not update automatically and must be edited manually whenever a service is added or removed.</p>
+      <div class="steps">
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the Services page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">/services-2</span>.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the count text on the canvas</strong><p>Click once to select, then double-click to enter edit mode. The cursor will appear inside the text.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Services page canvas with the count text double-clicked in edit mode, e.g. "(6)" with cursor visible]</p></div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Update the number</strong><p>Change the number to reflect the current total of published services. Keep the brackets, only change the number inside them.</p></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Click outside to deselect, then check all breakpoints</strong><p>Confirm it looks correct on Tablet and Phone canvases.</p></div></div>
+        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
+      </div>
+      <div class="callout tip"><div class="ci">💡</div><div class="cb"><strong>When to update the count</strong><p>Update it immediately after publishing a new service in the CMS or removing one. Keep it in sync with the actual number of live services at all times.</p></div></div>
+    </div>
+
+    <div class="section" id="services-detail-page">
+      <div class="section-eye">Services Page</div>
+      <h2>Individual Service Detail Pages</h2>
+      <p>Each service card on the Services page links to its own detail page (e.g. <span class="pill">/creative</span>, <span class="pill">/e-com</span>). These pages are template-driven, the same layout renders for every service, populated entirely from the CMS.</p>
+      <table class="tbl">
+        <thead><tr><th>Section</th><th>Content source</th><th>Editable via</th></tr></thead>
+        <tbody>
+          <tr><td>Hero</td><td>Service Hero Image or Service Hero Video</td><td>CMS</td></tr>
+          <tr><td>Service Name</td><td>Service Name field</td><td>CMS</td></tr>
+          <tr><td>Services Listed</td><td>Services (Listed) field</td><td>CMS</td></tr>
+          <tr><td>Content 1</td><td>First body paragraph</td><td>CMS</td></tr>
+          <tr><td>Portfolio Images/Videos 1-4</td><td>Image 1-4 / Video Content 1-4</td><td>CMS</td></tr>
+          <tr><td>Content 2</td><td>Second body paragraph</td><td>CMS</td></tr>
+          <tr><td>Content 3</td><td>Third body paragraph</td><td>CMS</td></tr>
+          <tr><td>CTA</td><td>"Let's work together." shared component</td><td>Do not touch</td></tr>
+          <tr><td>Next Services</td><td>Next Project 1-3 fields</td><td>CMS</td></tr>
+          <tr><td>Footer</td><td>Shared component</td><td>Do not touch</td></tr>
+        </tbody>
+      </table>
+      <div class="callout success"><div class="ci">✅</div><div class="cb"><strong>Everything is CMS-driven</strong><p>There is nothing to edit on the canvas for individual service detail pages. All content updates are made entirely through the CMS as documented in the Homepage Services section of this guide.</p></div></div>
+    </div>
+
+    <hr class="div"/>
+
+    <!-- BLOG PAGE -->
+    <div class="section" id="blog-overview">
+      <div class="ctag">④ Blog Page</div>
+      <div class="section-eye">Blog Page</div>
+      <h2>The (in)sights Blog</h2>
+      <div class="prop-badge">⚙ Proprietary System, Built by Ardent</div>
+      <p>The (in)sights blog page is a fully autonomous publishing system engineered by Ardent. It is powered by a dedicated Ardent-built proxy server that interfaces directly with your Substack publication, delivering faster response times, greater reliability, and immunity to the parsing inconsistencies of raw RSS feeds.</p>
+      <p>The moment a post is published on Substack, it appears on this page. There is no CMS to update, no canvas to touch, and no images to manually manage. The system handles everything.</p>
+      <div class="callout success"><div class="ci">✅</div><div class="cb"><strong>Completely hands-off, zero maintenance required</strong><p>Article titles, images, dates, excerpts, and links all pull and render automatically. Publishing on Substack is the only action the client ever needs to take.</p></div></div>
+      <table class="tbl">
+        <thead><tr><th>Element</th><th>What it does</th><th>Client action required</th></tr></thead>
+        <tbody>
+          <tr><td>Page heading</td><td>"(in)sights" static text</td><td>None</td></tr>
+          <tr><td>BlogCount</td><td>Animated counter showing live post count, auto-scales font size by screen width</td><td>None, fully automatic</td></tr>
+          <tr><td>YoshiFeedDesktop</td><td>2-column article grid with hover interactions, custom cursor, grayscale images</td><td>Adjustable via right panel</td></tr>
+          <tr><td>YoshiFeedMobile</td><td>Stacked single-column article list</td><td>Adjustable via right panel</td></tr>
+          <tr><td>Footer</td><td>Shared component across all pages</td><td>Do not touch</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" id="blog-desktop">
+      <div class="section-eye">Blog Page</div>
+      <div class="prop-badge">⚙ YoshiFeedDesktop v2, Built by Ardent</div>
+      <h2>Desktop Feed Controls</h2>
+      <p>The desktop feed renders articles in a configurable grid with full hover interactions, a custom floating cursor, grayscale-to-colour image transitions, and a three-tier image priority system. Select the <span class="pill">YoshiFeedDesktop</span> component on the Desktop canvas to access all controls in the right panel.</p>
+      <h3>Image priority system</h3>
+      <div class="pflow">
+        <div class="pfi"><div class="pfn">01</div><div class="pfl">Manual Override</div><div class="pfd">Image uploaded directly in Framer. Always takes precedence when Manual First is on.</div></div>
+        <div class="pfi"><div class="pfn">02</div><div class="pfl">Proxy Image</div><div class="pfd">Image fetched automatically from the Ardent proxy server.</div></div>
+        <div class="pfi"><div class="pfn">03</div><div class="pfl">Fallback</div><div class="pfd">A curated backup image used when neither source above is available.</div></div>
+      </div>
+      <div class="callout danger"><div class="ci">🚨</div><div class="cb"><strong>Images are position-based, not article-based</strong><p>Image 1 always shows on the first card position, Image 2 on the second, and so on. When a new post is published and the feed order shifts, manual image assignments must be reviewed. Always check image slots after publishing a new Substack post.</p></div></div>
+      <h3>Layout and display controls</h3>
+      <table class="tbl">
+        <thead><tr><th>Control</th><th>What it does</th><th>Default</th><th>Guidance</th></tr></thead>
+        <tbody>
+          <tr><td>Posts</td><td>Number of articles shown (1-20)</td><td><span class="val">15</span></td><td><span class="badge opt">Adjustable</span></td></tr>
+          <tr><td>Columns</td><td>Number of columns in the grid (1-4)</td><td><span class="val">2</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Col Gap</td><td>Space between columns</td><td><span class="val">10</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Row Gap</td><td>Space between rows</td><td><span class="val">40</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Date</td><td>Show or hide the publish date on each card</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
+          <tr><td>Excerpt</td><td>Show or hide the article excerpt</td><td><span class="val">Yes</span></td><td><span class="badge opt">Adjustable</span></td></tr>
+          <tr><td>Excerpt Len</td><td>Maximum characters in the excerpt</td><td><span class="val">120</span></td><td><span class="badge opt">Adjustable</span></td></tr>
+          <tr><td>Radius</td><td>Corner roundness of article images</td><td><span class="val">6</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Grayscale</td><td>Images in black and white, colour on hover</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
+          <tr><td>Cursor</td><td>Show or hide the custom floating cursor</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
+          <tr><td>Cursor Text</td><td>Label shown inside the floating cursor</td><td><span class="val">Read</span></td><td><span class="badge opt">Adjustable</span></td></tr>
+          <tr><td>Title Size</td><td>Font size of article titles</td><td><span class="val">22</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Date Size</td><td>Font size of the date label</td><td><span class="val">14</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Excerpt Size</td><td>Font size of the excerpt text</td><td><span class="val">15</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Manual First</td><td>Prioritises manually uploaded images over proxy images</td><td><span class="val">Yes</span></td><td><span class="badge caut">Always keep Yes</span></td></tr>
+          <tr><td>Image 1-15</td><td>Manual image override per card slot, slots appear as Posts count increases</td><td><span class="val">Empty</span></td><td><span class="badge opt">Upload as needed</span></td></tr>
+        </tbody>
+      </table>
+      <h3>Hover interactions, automatic</h3>
+      <table class="tbl">
+        <thead><tr><th>Interaction</th><th>Behaviour</th></tr></thead>
+        <tbody>
+          <tr><td>Custom cursor</td><td>A glassmorphic floating label follows the mouse with a smooth lag. Appears on hover, disappears on leave.</td></tr>
+          <tr><td>Grayscale to colour</td><td>Images transition from full grayscale to full colour on hover.</td></tr>
+          <tr><td>Image scale</td><td>Images subtly scale up on hover.</td></tr>
+          <tr><td>Date opacity</td><td>The publish date fades to full opacity on hover.</td></tr>
+        </tbody>
+      </table>
+      <div class="callout danger"><div class="ci">🚫</div><div class="cb"><strong>Do not edit the TSX code</strong><p>The feed fetches from the Ardent proxy server. Editing the source URL or any component logic will break the feed entirely. All adjustments must be made through the right panel property controls only.</p></div></div>
+    </div>
+
+    <div class="section" id="blog-mobile">
+      <div class="section-eye">Blog Page</div>
+      <div class="prop-badge">⚙ YoshiFeedMobile v2, Built by Ardent</div>
+      <h2>Mobile Feed Controls</h2>
+      <p>The mobile feed renders articles in a stacked single-column layout optimised for smaller screens. It includes the same manual image upload system and three-tier image priority as the desktop version, plus full property controls.</p>
+      <table class="tbl">
+        <thead><tr><th>Control</th><th>What it does</th><th>Default</th><th>Guidance</th></tr></thead>
+        <tbody>
+          <tr><td>Posts</td><td>Number of articles shown (1-20)</td><td><span class="val">15</span></td><td><span class="badge opt">Adjustable</span></td></tr>
+          <tr><td>Date</td><td>Show or hide the publish date</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
+          <tr><td>Excerpt</td><td>Show or hide the article excerpt</td><td><span class="val">Yes</span></td><td><span class="badge opt">Adjustable</span></td></tr>
+          <tr><td>Excerpt Len</td><td>Maximum characters in the excerpt</td><td><span class="val">120</span></td><td><span class="badge opt">Adjustable</span></td></tr>
+          <tr><td>Radius</td><td>Corner roundness of images</td><td><span class="val">6</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Row Gap</td><td>Spacing between stacked cards</td><td><span class="val">32</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Title Size</td><td>Font size of article titles</td><td><span class="val">20</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Date Size</td><td>Font size of the date label</td><td><span class="val">13</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Excerpt Size</td><td>Font size of the excerpt text</td><td><span class="val">15</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Manual First</td><td>Prioritises manually uploaded images over proxy images</td><td><span class="val">Yes</span></td><td><span class="badge caut">Always keep Yes</span></td></tr>
+          <tr><td>Image 1-15</td><td>Manual image override per card slot</td><td><span class="val">Empty</span></td><td><span class="badge opt">Upload as needed</span></td></tr>
+        </tbody>
+      </table>
+      <div class="callout info"><div class="ci">💡</div><div class="cb"><strong>No cursor on Mobile</strong><p>The mobile component has no hover cursor. Grayscale is always on. This is by design.</p></div></div>
+      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>Update image slots on both components</strong><p>The desktop and mobile feeds are independent. When uploading manual images, always update both <span class="pill">YoshiFeedDesktop</span> and <span class="pill">YoshiFeedMobile</span> to keep them consistent.</p></div></div>
+    </div>
+
+    <div class="section" id="blog-workflow">
+      <div class="section-eye">Blog Page</div>
+      <h2>Publishing Workflow</h2>
+      <p>After publishing a new post on Substack, follow this workflow to ensure the blog page looks correct.</p>
+      <div class="steps">
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Publish your post on Substack</strong><p>Write and publish your article as normal. The Ardent proxy server detects it and the blog page updates automatically within minutes.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Check the blog page on your live site</strong><p>Navigate to the (in)sights page and confirm the new article is visible and the image looks correct.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>If the image needs replacing, open the Framer editor</strong><p>Go to the <span class="pill">/blog</span> page. Select the <span class="pill">YoshiFeedDesktop</span> component on the Desktop canvas.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Blog page canvas with YoshiFeedDesktop selected, right panel showing Manual First toggle and Image 1-15 slots]</p></div></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Upload a manual image for the relevant slot</strong><p>Image 1 = first card position, Image 2 = second, and so on. Upload a clean, well-cropped JPG or WebP image.</p></div></div>
+        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Switch to the Phone breakpoint and repeat for the Mobile component</strong><p>Select the <span class="pill">YoshiFeedMobile</span> component and upload the same image into the matching slot.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Phone breakpoint canvas with YoshiFeedMobile selected, right panel showing matching image slots]</p></div></div></div>
+        <div class="step"><div class="snum">6</div><div class="sbody"><strong>Publish in Framer</strong><p>Only needed if you uploaded manual images. Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
+      </div>
+      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>Review image slots after every new post</strong><p>Images are position-based. When a new post becomes the latest article, all card positions shift by one. Always review all slots after publishing a new post.</p></div></div>
+      <div class="bp-box">
+        <div class="bph">Best Practice, Blog Posts</div>
+        <ul>
+          <li><strong>Always include a cover image on Substack.</strong> Without one, the component uses the fallback pool which may not match your content.</li>
+          <li><strong>Keep titles under 80 characters.</strong> Longer titles wrap across multiple lines and look unbalanced in the 2-column grid.</li>
+          <li><strong>Write a strong first paragraph.</strong> The excerpt is pulled from the article opening. A compelling first sentence drives click-throughs.</li>
+          <li><strong>Use JPG or WebP for cover images.</strong> The feed automatically skips .heic images on mobile, they will show a fallback instead.</li>
+          <li><strong>Upload manual images for full control.</strong> When visual consistency matters, upload a manually cropped image for every active card slot rather than relying on the proxy image.</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="ardent-cta" data-cta="true">
       <div class="ardent-cta-grid"></div>
@@ -1008,188 +1209,86 @@
       </div>
     </div>
 
-    <div class="section" id="services-page-count">
-      <div class="section-eye">Services Page</div>
-      <h2>Updating the Service Count</h2>
-      <p>The number shown in brackets next to the page heading (e.g. "(6)") is a plain text layer on the canvas. It does not update automatically, it must be edited manually whenever a service is added or removed.</p>
-
-      <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the Services page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">/services-2</span>.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the count text on the canvas</strong><p>Click once to select, then double-click to enter edit mode. The cursor will appear inside the text.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Services page canvas with the count text double-clicked and in edit mode, e.g. "(6)" with cursor visible]</p></div></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Update the number</strong><p>Change the number to reflect the current total of published services. Keep the brackets, only change the number inside them.</p></div></div>
-        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Click outside to deselect, then check all breakpoints</strong><p>Confirm it looks correct on Tablet and Phone canvases.</p></div></div>
-        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
-      </div>
-
-      <div class="callout tip"><div class="ci">💡</div><div class="cb"><strong>When to update the count</strong><p>Update it immediately after publishing a new service in the CMS or removing one. Keep it in sync with the actual number of live services at all times.</p></div></div>
-    </div>
-
-    <div class="section" id="services-detail-page">
-      <div class="section-eye">Services Page</div>
-      <h2>Individual Service Detail Pages</h2>
-      <p>Each service card on the Services page links to its own detail page (e.g. <span class="pill">/creative</span>, <span class="pill">/e-com</span>). These pages are template-driven, the same layout renders for every service, populated entirely from the CMS.</p>
-
-      <h3>Page structure (top to bottom)</h3>
-      <table class="tbl">
-        <thead><tr><th>Section</th><th>Content source</th><th>Editable via</th></tr></thead>
-        <tbody>
-          <tr><td>Hero</td><td>Service Hero Image or Service Hero Video</td><td>CMS</td></tr>
-          <tr><td>Service Name</td><td>Service Name field</td><td>CMS</td></tr>
-          <tr><td>Services Listed</td><td>Services (Listed) field</td><td>CMS</td></tr>
-          <tr><td>Content 1</td><td>First body paragraph</td><td>CMS</td></tr>
-          <tr><td>Portfolio Images/Videos 1-4</td><td>Image 1-4 / Video Content 1-4</td><td>CMS</td></tr>
-          <tr><td>Content 2</td><td>Second body paragraph</td><td>CMS</td></tr>
-          <tr><td>Content 3</td><td>Third body paragraph</td><td>CMS</td></tr>
-          <tr><td>CTA</td><td>"Let's work together.", shared component</td><td>Do not touch</td></tr>
-          <tr><td>Next Services</td><td>Next Project 1-3 fields</td><td>CMS</td></tr>
-          <tr><td>Footer</td><td>Shared component</td><td>Do not touch</td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout success"><div class="ci">✅</div><div class="cb"><strong>Everything is CMS-driven</strong><p>There is nothing to edit on the canvas for individual service detail pages. All content updates, copy, images, videos, listed services, are made entirely through the CMS as documented in the Homepage Services section of this guide.</p></div></div>
-
-      <div class="callout info"><div class="ci">💡</div><div class="cb"><strong>Refer to the CMS field reference</strong><p>For a full breakdown of every field and the rules that apply (Image vs Video, slug permanence, content length recommendations), see the Services CMS Field Reference in the Homepage section of this guide.</p></div></div>
-    </div>
-
-
     <hr class="div"/>
 
-    <!-- BLOG PAGE -->
-    <div class="section" id="blog-overview">
-      <div class="ctag">④ Blog Page</div>
-      <div class="section-eye">Blog Page</div>
-      <h2>The (in)sights Blog</h2>
-      <div class="prop-badge">⚙ Proprietary System, Built by Ardent</div>
-      <p>The (in)sights blog page is a fully autonomous publishing system engineered by Ardent. It is powered by a dedicated Ardent-built proxy server that interfaces directly with your Substack publication, delivering faster response times, greater reliability, and immunity to the parsing inconsistencies of raw RSS feeds.</p>
-      <p>The moment a post is published on Substack, it appears on this page. There is no CMS to update, no canvas to touch, and no images to manually manage. The system handles everything.</p>
-
-      <div class="callout success"><div class="ci">✅</div><div class="cb"><strong>Completely hands-off, zero maintenance required</strong><p>Article titles, images, dates, excerpts, and links all pull and render automatically. Publishing on Substack is the only action the client ever needs to take.</p></div></div>
-
-      <div class="callout info"><div class="ci">💡</div><div class="cb"><strong>Why this is different from the homepage (in)sights feed</strong><p>The homepage feed uses the raw Substack RSS feed and requires occasional manual image overrides. The blog page uses the Ardent proxy server, a purpose-built intermediary that processes and normalises the feed data, resulting in more consistent image rendering and no manual image management needed.</p></div></div>
-
-      <h3>Page structure</h3>
+    <!-- ABOUT PAGE -->
+    <div class="section" id="about-overview">
+      <div class="ctag">⑤ About Page</div>
+      <div class="section-eye">About Page</div>
+      <h2>About Page Overview</h2>
+      <p>The About page is a mix of a custom Ardent-built TSX component and directly editable canvas text. Most content can be updated with a simple double-click on the canvas. The animated headline in the top-right is the only element that requires the right panel.</p>
       <table class="tbl">
-        <thead><tr><th>Element</th><th>What it does</th><th>Client action required</th></tr></thead>
+        <thead><tr><th>Section</th><th>How to edit</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>Page heading</td><td>"(in)sights", static text</td><td>None</td></tr>
-          <tr><td>BlogCount</td><td>Animated counter that displays the live number of posts, auto-scales font size by screen width</td><td>None, fully automatic</td></tr>
-          <tr><td>YoshiFeedDesktop</td><td>2-column article grid with hover interactions, custom cursor, grayscale images</td><td>Adjustable via right panel controls</td></tr>
-          <tr><td>YoshiFeedMobile</td><td>Stacked single-column article list, fixed layout</td><td>None, fixed design</td></tr>
-          <tr><td>Footer</td><td>Shared component across all pages</td><td>Do not touch</td></tr>
+          <tr><td>"About" heading</td><td>Double-click directly on canvas</td><td>Plain static text layer</td></tr>
+          <tr><td>Animated headline</td><td>Right panel, Before, Words, After fields</td><td>InlineTextCycler TSX component</td></tr>
+          <tr><td>Body paragraph</td><td>Double-click directly on canvas</td><td>Directly editable</td></tr>
+          <tr><td>Studio image</td><td>Select on canvas, replace via right panel</td><td>Plain image asset</td></tr>
+          <tr><td>Location strip</td><td>Double-click directly on canvas</td><td>Directly editable</td></tr>
+          <tr><td>Principles heading</td><td>Double-click directly on canvas</td><td>Plain static text layer</td></tr>
+          <tr><td>Principles paragraphs</td><td>Double-click directly on canvas</td><td>3 separate text layers</td></tr>
+          <tr><td>(our) services</td><td>CMS only, auto-updates</td><td>No canvas work needed</td></tr>
+          <tr><td>CTA</td><td>Do not touch</td><td>Shared component</td></tr>
+          <tr><td>Footer</td><td>Do not touch</td><td>Shared component</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="section" id="blog-desktop">
-      <div class="section-eye">Blog Page</div>
-      <div class="prop-badge">⚙ YoshiFeedDesktop v2, Built by Ardent</div>
-      <h2>Desktop Feed Controls</h2>
-      <p>The desktop feed renders articles in a configurable grid with full hover interactions, a custom floating cursor, grayscale-to-colour image transitions, and a three-tier image priority system. Select the <span class="pill">YoshiFeedDesktop</span> component on the Desktop canvas to access all controls in the right panel.</p>
-
-      <h3>Image priority system</h3>
-      <p>Identical to the homepage (in)sights feed, the blog feed now resolves images using the same waterfall logic:</p>
-      <div class="pflow">
-        <div class="pfi"><div class="pfn">01</div><div class="pfl">Manual Override</div><div class="pfd">Image uploaded directly in Framer. Always takes precedence when Manual First is on.</div></div>
-        <div class="pfi"><div class="pfn">02</div><div class="pfl">Proxy Image</div><div class="pfd">Image fetched automatically from the Ardent proxy server.</div></div>
-        <div class="pfi"><div class="pfn">03</div><div class="pfl">Fallback</div><div class="pfd">A curated backup image used when neither source above is available.</div></div>
-      </div>
-
-      <div class="callout danger"><div class="ci">🚨</div><div class="cb"><strong>Images are position-based, not article-based</strong><p>Image 1 always shows on the first card position, Image 2 on the second, and so on. When a new post is published and the feed order shifts, manual image assignments must be reviewed. Always check image slots after publishing a new Substack post.</p></div></div>
-
-      <h3>Layout and display controls</h3>
-      <table class="tbl">
-        <thead><tr><th>Control</th><th>What it does</th><th>Default</th><th>Guidance</th></tr></thead>
-        <tbody>
-          <tr><td>Posts</td><td>Number of articles shown (1–20)</td><td><span class="val">15</span></td><td><span class="badge opt">Adjustable</span></td></tr>
-          <tr><td>Columns</td><td>Number of columns in the grid (1–4)</td><td><span class="val">2</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Col Gap</td><td>Space between columns</td><td><span class="val">10</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Row Gap</td><td>Space between rows</td><td><span class="val">40</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Date</td><td>Show or hide the publish date on each card</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
-          <tr><td>Excerpt</td><td>Show or hide the article excerpt</td><td><span class="val">Yes</span></td><td><span class="badge opt">Adjustable</span></td></tr>
-          <tr><td>Excerpt Len</td><td>Maximum characters in the excerpt</td><td><span class="val">120</span></td><td><span class="badge opt">Adjustable</span></td></tr>
-          <tr><td>Radius</td><td>Corner roundness of article images</td><td><span class="val">6</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Grayscale</td><td>Images in black and white, colour on hover</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
-          <tr><td>Cursor</td><td>Show or hide the custom floating cursor</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
-          <tr><td>Cursor Text</td><td>Label shown inside the floating cursor</td><td><span class="val">Read</span></td><td><span class="badge opt">Adjustable</span></td></tr>
-          <tr><td>Title Size</td><td>Font size of article titles</td><td><span class="val">22</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Date Size</td><td>Font size of the date label</td><td><span class="val">14</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Excerpt Size</td><td>Font size of the excerpt text</td><td><span class="val">15</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Manual First</td><td>Prioritises manually uploaded images over proxy images</td><td><span class="val">Yes</span></td><td><span class="badge caut">Always keep Yes</span></td></tr>
-          <tr><td>Image 1–15</td><td>Manual image override per card slot, slots appear as Posts count increases</td><td><span class="val">Empty</span></td><td><span class="badge opt">Upload as needed</span></td></tr>
-        </tbody>
-      </table>
-
-      <h3>Hover interactions, automatic</h3>
-      <table class="tbl">
-        <thead><tr><th>Interaction</th><th>Behaviour</th></tr></thead>
-        <tbody>
-          <tr><td>Custom cursor</td><td>A glassmorphic floating label follows the mouse with a smooth lag. Appears on hover, disappears on leave.</td></tr>
-          <tr><td>Grayscale to colour</td><td>Images transition from full grayscale to full colour on hover.</td></tr>
-          <tr><td>Image scale</td><td>Images subtly scale up on hover.</td></tr>
-          <tr><td>Date opacity</td><td>The publish date fades to full opacity on hover.</td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout danger"><div class="ci">🚫</div><div class="cb"><strong>Do not edit the TSX code</strong><p>The feed fetches from the Ardent proxy server. Editing the source URL or any component logic will break the feed entirely. All adjustments must be made through the right panel property controls only.</p></div></div>
-    </div>
-
-    <div class="section" id="blog-mobile">
-      <div class="section-eye">Blog Page</div>
-      <div class="prop-badge">⚙ YoshiFeedMobile v2, Built by Ardent</div>
-      <h2>Mobile Feed Controls</h2>
-      <p>The mobile feed renders articles in a stacked single-column layout optimised for smaller screens. It now includes the same manual image upload system and three-tier image priority as the desktop version, plus full property controls.</p>
-
-      <h3>Display controls</h3>
-      <table class="tbl">
-        <thead><tr><th>Control</th><th>What it does</th><th>Default</th><th>Guidance</th></tr></thead>
-        <tbody>
-          <tr><td>Posts</td><td>Number of articles shown (1–20)</td><td><span class="val">15</span></td><td><span class="badge opt">Adjustable</span></td></tr>
-          <tr><td>Date</td><td>Show or hide the publish date</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
-          <tr><td>Excerpt</td><td>Show or hide the article excerpt</td><td><span class="val">Yes</span></td><td><span class="badge opt">Adjustable</span></td></tr>
-          <tr><td>Excerpt Len</td><td>Maximum characters in the excerpt</td><td><span class="val">120</span></td><td><span class="badge opt">Adjustable</span></td></tr>
-          <tr><td>Radius</td><td>Corner roundness of images</td><td><span class="val">6</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Row Gap</td><td>Spacing between stacked cards</td><td><span class="val">32</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Title Size</td><td>Font size of article titles</td><td><span class="val">20</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Date Size</td><td>Font size of the date label</td><td><span class="val">13</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Excerpt Size</td><td>Font size of the excerpt text</td><td><span class="val">15</span></td><td><span class="badge keep">Keep default</span></td></tr>
-          <tr><td>Manual First</td><td>Prioritises manually uploaded images over proxy images</td><td><span class="val">Yes</span></td><td><span class="badge caut">Always keep Yes</span></td></tr>
-          <tr><td>Image 1–15</td><td>Manual image override per card slot</td><td><span class="val">Empty</span></td><td><span class="badge opt">Upload as needed</span></td></tr>
-        </tbody>
-      </table>
-
-      <div class="callout info"><div class="ci">💡</div><div class="cb"><strong>No cursor on mobile</strong><p>The mobile component has no hover cursor, touch devices do not support hover interactions. Grayscale is always on and cannot be toggled. This is by design.</p></div></div>
-
-      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>Update image slots on both components</strong><p>The desktop and mobile feeds are independent components with their own image slots. When uploading manual images, always update both <span class="pill">YoshiFeedDesktop</span> and <span class="pill">YoshiFeedMobile</span> to keep them consistent.</p></div></div>
-    </div>
-
-    <div class="section" id="blog-workflow">
-      <div class="section-eye">Blog Page</div>
-      <h2>Publishing Workflow</h2>
-      <p>After publishing a new post on Substack, follow this workflow to ensure the blog page looks correct.</p>
-
+    <div class="section" id="about-cycler">
+      <div class="section-eye">About Page</div>
+      <div class="prop-badge">⚙ InlineTextCycler, Built by Ardent</div>
+      <h2>The Animated Headline</h2>
+      <p>The large headline in the top-right of the About page is powered by the InlineTextCycler, a proprietary Ardent-built component that cycles through a list of words inline within a sentence. It supports italic formatting, full typography control, and independent animation settings.</p>
+      <p>The animation only runs on the live site. In the Framer editor the headline appears static. This is expected behaviour.</p>
+      <div class="callout info"><div class="ci">💡</div><div class="cb"><strong>Two separate components</strong><p>The About page uses <span class="pill">InlineTextCycler</span> for Desktop and Tablet, and <span class="pill">InlineTextCyclerMobile</span> for Phone. Both work identically but have independent settings. Always update both when changing the headline content.</p></div></div>
+      <h3>How to edit the headline</h3>
       <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Publish your post on Substack</strong><p>Write and publish your article as normal. The Ardent proxy server detects it and the blog page updates automatically within minutes.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Check the blog page on your live site</strong><p>Navigate to the (in)sights page and confirm the new article is visible. Check whether the image looks correct, right crop, loads quickly, visually clean.</p></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>If the image needs replacing, open the Framer editor</strong><p>Go to the <span class="pill">/blog</span> page. Select the <span class="pill">YoshiFeedDesktop</span> component on the Desktop canvas.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Blog page canvas with YoshiFeedDesktop component selected, right panel showing Manual First toggle and Image 1–15 slots]</p></div></div></div>
-        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Upload a manual image for the relevant slot</strong><p>Image 1 = first card position, Image 2 = second, and so on. Upload a clean, well-cropped JPG or WebP image for the card that needs replacing.</p></div></div>
-        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Switch to the Phone breakpoint and repeat for the Mobile component</strong><p>Select the <span class="pill">YoshiFeedMobile</span> component and upload the same image into the matching slot.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Phone breakpoint canvas with YoshiFeedMobile component selected, right panel showing matching image slots]</p></div></div></div>
-        <div class="step"><div class="snum">6</div><div class="sbody"><strong>Publish in Framer</strong><p>Only needed if you uploaded manual images. Click <span class="pill">Publish</span> in the top-right corner. If the proxy images looked fine, no Framer publishing is required at all.</p></div></div>
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the About page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">/about</span>.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Click the animated headline on the canvas to select it</strong><p>The right panel will show the <span class="pill">InlineTextCycler</span> component controls.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: About page canvas with the headline component selected, right panel showing Before, Words, After fields]</p></div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Update the Before, Words, and After fields</strong><p>These three fields together build the full headline. See the field guide below for exactly how each works.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right panel closeup showing Before text area, Words field, and After text area with current values]</p></div></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Switch to the Phone breakpoint and repeat for InlineTextCyclerMobile</strong><p>Select the mobile version of the component and update the same three fields to match.</p></div></div>
+        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Check all breakpoints then Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
       </div>
-
-      <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>Review image slots after every new post</strong><p>Images are position-based. When a new post becomes the latest article, all card positions shift by one. The image you uploaded for position 1 last week now shows on position 2. Always review all slots after publishing a new post.</p></div></div>
-
-      <div class="best-practice">
-        <div class="bph">Best Practice, Blog Posts</div>
+      <h3>Content fields</h3>
+      <table class="tbl">
+        <thead><tr><th>Field</th><th>What it controls</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Before</td><td>The static text that appears before the cycling word</td><td>Use <span class="pill">_text_</span> around any word to make it italic. Use <span class="pill">
+</span> for a line break.</td></tr>
+          <tr><td>Words</td><td>Comma-separated list of words that cycle in place</td><td>e.g. <span class="pill">CONTENT CREATION, BRAND STRATEGY, CREATIVE DIRECTION</span></td></tr>
+          <tr><td>After</td><td>The static text that appears after the cycling word</td><td>Same italic and line break rules as Before.</td></tr>
+        </tbody>
+      </table>
+      <div class="bp-box">
+        <div class="bph">How to use italic formatting</div>
         <ul>
-          <li><strong>Always include a cover image on Substack.</strong> Without one, the component uses the fallback pool, which may not match your content.</li>
-          <li><strong>Keep titles under 80 characters.</strong> Longer titles wrap across multiple lines and look unbalanced in the 2-column grid.</li>
-          <li><strong>Write a strong first paragraph.</strong> The excerpt is pulled from the article opening. A compelling first sentence drives click-throughs.</li>
-          <li><strong>Use JPG or WebP for cover images.</strong> The feed automatically skips .heic images on mobile, they will show a fallback instead.</li>
-          <li><strong>Upload manual images for full control.</strong> When visual consistency matters, upload a manually cropped image for every active card slot rather than relying on the proxy image.</li>
+          <li><strong>Wrap any word or phrase in underscores</strong> to make it italic. For example: <span class="pill">A _MULTIDISCIPLINARY_ STUDIO</span> renders "MULTIDISCIPLINARY" in italic.</li>
+          <li><strong>Line breaks</strong> are created by pressing Enter inside the text area field, or by typing <span class="pill">
+</span>.</li>
+          <li><strong>The cycling word itself cannot be italicised</strong> via this method. Its style is controlled by the Cycle Wt and Cycle Color fields.</li>
         </ul>
       </div>
+      <h3>Typography and animation controls</h3>
+      <table class="tbl">
+        <thead><tr><th>Control</th><th>What it does</th><th>Default</th><th>Guidance</th></tr></thead>
+        <tbody>
+          <tr><td>Interval</td><td>Seconds between each word cycling</td><td><span class="val">2.5</span></td><td><span class="badge opt">Adjustable</span></td></tr>
+          <tr><td>Speed</td><td>Duration of the transition animation</td><td><span class="val">0.45</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Font</td><td>Font family used across all text</td><td><span class="val">Inter</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Size</td><td>Font size in px</td><td><span class="val">39 desktop / 24 mobile</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Line Height</td><td>Line height multiplier</td><td><span class="val">1.02</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Tracking</td><td>Letter spacing in px</td><td><span class="val">-0.4</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Uppercase</td><td>Forces all text to uppercase</td><td><span class="val">Yes</span></td><td><span class="badge keep">Keep Yes</span></td></tr>
+          <tr><td>Base Wt</td><td>Font weight of the static Before/After text</td><td><span class="val">400</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Base Color</td><td>Colour of the static text</td><td><span class="val">#F3EEE8</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Cycle Wt</td><td>Font weight of the cycling word</td><td><span class="val">700</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Cycle Color</td><td>Colour of the cycling word</td><td><span class="val">#F3EEE8</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Italic Wt</td><td>Font weight of italic-formatted text</td><td><span class="val">400</span></td><td><span class="badge keep">Keep default</span></td></tr>
+          <tr><td>Italic Color</td><td>Colour of italic-formatted text</td><td><span class="val">#F3EEE8</span></td><td><span class="badge keep">Keep default</span></td></tr>
+        </tbody>
+      </table>
+      <div class="callout danger"><div class="ci">🚫</div><div class="cb"><strong>Do not edit the TSX code</strong><p>All changes to the headline must be made through the right panel fields only. Editing the component code will break the animation and formatting logic.</p></div></div>
     </div>
-
 
     <div class="ardent-cta" data-cta="true">
       <div class="ardent-cta-grid"></div>
@@ -1210,25 +1309,40 @@
       </div>
     </div>
 
-    <div class="ardent-cta" data-cta="true">
-      <div class="ardent-cta-grid"></div>
-      <div class="ardent-cta-noise"></div>
-      <div class="ardent-cta-ring1"></div>
-      <div class="ardent-cta-ring2"></div>
-      <div class="ardent-cta-spotlight" data-spotlight="true"></div>
-      <div class="ardent-cta-inset"></div>
-      <div class="ardent-cta-body">
-        <div class="ardent-cta-eye"><span class="ardent-cta-orb"></span>Ardent · Retainer Services</div>
-        <h3>Let's figure it out together.</h3>
-        <p>Every YOSHI(studio) retainer is personalised to where you are and where you want to go. Reach out and we'll recommend the right starting point.</p>
-        <a href="https://wa.me/PLACEHOLDER" target="_blank" class="ardent-cta-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.557 4.126 1.526 5.855L.057 23.882l6.19-1.624A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.724.977.995-3.63-.234-.373A9.818 9.818 0 0112 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/></svg>
-          Let's Connect
-          <span class="btn-arrow">→</span>
-        </a>
+    <div class="section" id="about-canvas">
+      <div class="section-eye">About Page</div>
+      <h2>Canvas Edits</h2>
+      <p>All other editable elements on the About page are plain text layers or image assets that can be updated directly on the canvas.</p>
+      <h3>Text layers, double-click to edit</h3>
+      <div class="steps">
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Scroll to the element you want to edit on the canvas</strong><p>Or find it in the Layers panel on the left.</p></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the text to enter edit mode</strong><p>Type your updated copy directly.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click outside to deselect, check all breakpoints, then Publish</strong><p>Click <span class="pill">Publish</span> when confirmed.</p></div></div>
       </div>
+      <div class="bp-box">
+        <div class="bph">Best Practice, About Page Text</div>
+        <ul>
+          <li><strong>Body paragraph:</strong> Keep under 180 characters. This sits directly below the animated headline and acts as a supporting statement, not a full description.</li>
+          <li><strong>Location strip:</strong> Format as "BASED IN [CITY] + [CITY] / WORKING [SCOPE]". Keep it short and factual.</li>
+          <li><strong>Principles paragraphs:</strong> Each paragraph should be a standalone thought, 60 to 100 words. Avoid bullet points, these are editorial statements, not lists.</li>
+        </ul>
+      </div>
+      <h3>Replacing the studio image</h3>
+      <div class="steps">
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Click the studio image on the canvas to select it</strong><p>A blue selection box appears around the image.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Studio image selected on canvas with right panel showing the image asset field]</p></div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>In the right panel click the image thumbnail to open the image editor</strong><p>Click the preview inside the popup and upload your new image.</p></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Check all breakpoints then Publish</strong><p>Click <span class="pill">Publish</span> when confirmed.</p></div></div>
+      </div>
+      <div class="bp-box">
+        <div class="bph">Best Practice, Studio Image</div>
+        <ul>
+          <li><strong>Resolution:</strong> Minimum 2000px wide. The image spans a large portion of the page on desktop.</li>
+          <li><strong>Format:</strong> JPG or WebP. Keep under 3MB.</li>
+          <li><strong>Content:</strong> Behind-the-scenes, studio environment, or editorial process imagery works best.</li>
+        </ul>
+      </div>
+      <div class="callout danger"><div class="ci">🚫</div><div class="cb"><strong>(our) services section, do not touch</strong><p>The three service cards below the Principles section pull automatically from the <span class="pill">Services(Beta)</span> CMS collection. Any changes to service content should be made through the CMS as documented in the Homepage Services section of this guide.</p></div></div>
     </div>
-
 
     <hr class="div"/>
 
