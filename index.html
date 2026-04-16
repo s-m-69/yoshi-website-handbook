@@ -571,6 +571,37 @@
 
   .revision-def strong { color: var(--ink); }
 
+
+  /* ── SCREENSHOT IMAGES ── */
+  .simg-wrap {
+    margin-top: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+
+  .simg-wrap img {
+    width: 100%;
+    display: block;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .simg-caption {
+    background: var(--off-white-2);
+    border-top: 1px solid var(--rule);
+    padding: 10px 14px;
+    font-size: 11.5px;
+    color: var(--muted);
+    font-family: var(--font);
+    line-height: 1.55;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .simg-caption strong {
+    color: var(--slate-mid);
+    font-weight: 600;
+  }
+
 </style>
 </head>
 <body>
@@ -701,8 +732,14 @@
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Open your Framer editor link</strong><p>Use the direct link provided by Ardent. This takes you straight to the YoshiStudio project without navigating the Framer homepage.</p></div></div>
         <div class="step"><div class="snum">2</div><div class="sbody"><strong>Sign in with your credentials</strong><p>Enter your email and password. Use "Forgot password" if needed.</p></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Locate and open YoshiStudio</strong><p>After logging in you'll land on the project dashboard. Find the card labelled <span class="pill">YoshiStudio</span> and click it to open the editor.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Framer dashboard with the YoshiStudio project card visible and highlighted]</p></div></div></div>
-        <div class="step"><div class="snum">4</div><div class="sbody"><strong>You're in</strong><p>The canvas opens on the <span class="pill">Home</span> page by default. You're ready to edit.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Full Framer canvas open on the Home page at default zoom, left panel, canvas and right panel all visible]</p></div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Locate and open YoshiStudio</strong><p>After logging in you'll land on the project dashboard. Find the card labelled <span class="pill">YoshiStudio</span> and click it to open the editor.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/1.png" alt="Screenshot 1" loading="lazy"/>
+          <div class="simg-caption">Framer project dashboard. The YoshiStudio card is visible on the left, click it to open the editor.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><strong>You're in</strong><p>The canvas opens on the <span class="pill">Home</span> page by default. You're ready to edit.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/2.png" alt="Screenshot 2" loading="lazy"/>
+          <div class="simg-caption">Full Framer canvas open on the Home page. Left panel shows the Pages tab with all pages listed. Centre shows Desktop, Tablet and Phone breakpoints side by side. Right panel shows page properties.</div>
+        </div></div></div>
       </div>
     </div>
 
@@ -733,7 +770,10 @@
       <p>The hero tagline sits over the full-screen image at the top of the homepage. It is directly editable on the canvas, no CMS or right panel required. Text formatting can be adjusted freely to match your preference.</p>
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the Home page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">Home</span>.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Click once on the tagline text on the canvas</strong><p>A blue selection box appears around the text layer.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Hero tagline selected on canvas with blue bounding box around the text layer]</p></div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Click once on the tagline text on the canvas</strong><p>A blue selection box appears around the text layer.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/3.png" alt="Screenshot 3" loading="lazy"/>
+          <div class="simg-caption">Hero tagline text selected on canvas. Blue bounding box visible around the text. Right panel shows text properties, only edit the Content field, never the Styles.</div>
+        </div></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Double-click to enter edit mode</strong><p>The cursor appears inside the text. You can now type and format directly.</p></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Edit and format the text as desired</strong><p>Type your updated copy. Use bold or italic formatting as preferred, the component allows free formatting.</p></div></div>
         <div class="step"><div class="snum">5</div><div class="sbody"><strong>Click outside to deselect, then check all breakpoints</strong><p>Review Tablet and Phone canvases to confirm the text looks correct across all screen sizes.</p></div></div>
@@ -755,11 +795,26 @@
       <h2>Replacing the Hero Image</h2>
       <p>The hero image is managed through the Framer CMS, not directly on the canvas. This ensures it stays correctly linked across all breakpoints.</p>
       <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Open the CMS panel</strong><p>Click the <span class="pill">CMS</span> icon in the top-left toolbar (stacked cylinders icon).</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Top-left Framer toolbar with the CMS icon circled]</p></div></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Select Homepage Hero from the Collections list</strong><p>In the left sidebar of the CMS panel click <span class="pill">Homepage Hero</span>.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: CMS collections left sidebar with Homepage Hero selected and highlighted]</p></div></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click on the "hero" row</strong><p>There is exactly one item in this collection labelled <span class="pill">hero</span>. Click anywhere on that row to open it on the right side.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: The hero row selected in the Homepage Hero collection with the right panel open showing slug and Image field]</p></div></div></div>
-        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Click the image thumbnail under the Image field</strong><p>The image editor popup opens.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right panel with Image field visible, cursor hovering over the current image thumbnail]</p></div></div></div>
-        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Click the image preview inside the popup and upload your new image</strong><p>Select your file from your computer. The new image replaces the current one immediately.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Image popup open showing the current image preview, Resolution, Alt Text and Focal Point fields]</p></div></div></div>
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Open the CMS panel</strong><p>Click the <span class="pill">CMS</span> icon in the top-left toolbar (stacked cylinders icon).</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/4.png" alt="Screenshot 4" loading="lazy"/>
+          <div class="simg-caption">Home page canvas open with Pages tab active. To open the CMS, click the database/cylinder stack icon in the top-left toolbar (5th icon from left, next to the pen icon).</div>
+        </div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Select Homepage Hero from the Collections list</strong><p>In the left sidebar of the CMS panel click <span class="pill">Homepage Hero</span>.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/5.png" alt="Screenshot 5" loading="lazy"/>
+          <div class="simg-caption">CMS panel open. Homepage Hero collection is selected in the left sidebar. The single 'hero' item is visible in the main panel with its image thumbnail.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click on the "hero" row</strong><p>There is exactly one item in this collection labelled <span class="pill">hero</span>. Click anywhere on that row to open it on the right side.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/6.png" alt="Screenshot 6" loading="lazy"/>
+          <div class="simg-caption">The 'hero' row has been clicked and is open on the right. The slug field shows 'hero', never edit this. The Image field shows the current photo with alt text. Click the image thumbnail to replace it.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Click the image thumbnail under the Image field</strong><p>The image editor popup opens.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/7.png" alt="Screenshot 7" loading="lazy"/>
+          <div class="simg-caption">Image popup open after clicking the thumbnail. Click the large image preview to choose a new file. Update the Alt Text field with a description of the new image before closing.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Click the image preview inside the popup and upload your new image</strong><p>Select your file from your computer. The new image replaces the current one immediately.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/7.png" alt="Screenshot 8" loading="lazy"/>
+          <div class="simg-caption">Image popup open after clicking the thumbnail. Click the large image preview to choose a new file. Update the Alt Text field with a description of the new image before closing.</div>
+        </div></div></div>
         <div class="step"><div class="snum">6</div><div class="sbody"><strong>Update the Alt Text field</strong><p>Write a short description of the new image (e.g. "Model in white studio, seated"). This is important for SEO and accessibility.</p></div></div>
         <div class="step"><div class="snum">7</div><div class="sbody"><strong>Close the popup and Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
       </div>
@@ -789,10 +844,22 @@
       <h2>Editing an Existing Service</h2>
       <p>All service content is managed entirely through the CMS. You do not need to touch the canvas to edit an existing service.</p>
       <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Open the CMS panel</strong><p>Click the <span class="pill">CMS</span> icon in the top-left toolbar.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Top-left Framer toolbar with the CMS icon circled]</p></div></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Select Services(Beta) from the Collections list</strong><p>All 6 services are listed: Creative, Ecommerce, Social Media, Motion, AI, Production.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: CMS left sidebar with Services(Beta) selected, 6 service rows visible in the main panel]</p></div></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click the service you want to edit</strong><p>The service item opens in the right panel.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: A service row clicked, right panel open showing Service Number, Service Thumbnail, Service Name fields at the top]</p></div></div></div>
-        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Update the relevant fields</strong><p>Edit only what needs changing. Refer to the field reference table below for what each field controls and what rules apply.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right panel scrolled to show Service Hero Image and Service Hero Video fields, one populated, one intentionally left empty]</p></div></div></div>
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Open the CMS panel</strong><p>Click the <span class="pill">CMS</span> icon in the top-left toolbar.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/4.png" alt="Screenshot 9" loading="lazy"/>
+          <div class="simg-caption">Home page canvas open with Pages tab active. To open the CMS, click the database/cylinder stack icon in the top-left toolbar (5th icon from left, next to the pen icon).</div>
+        </div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Select Services(Beta) from the Collections list</strong><p>All 6 services are listed: Creative, Ecommerce, Social Media, Motion, AI, Production.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/8.png" alt="Screenshot 10" loading="lazy"/>
+          <div class="simg-caption">Services (Live) collection selected in the CMS. All 6 services are listed: Creative, Ecommerce, Social Media, Motion, AI, Production. Click any row to edit that service.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click the service you want to edit</strong><p>The service item opens in the right panel.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/9.png" alt="Screenshot 11" loading="lazy"/>
+          <div class="simg-caption">Creative service item open in the right panel. Service Number is 1, Service Name is Creative. Note Service Hero Image is empty and Service Hero Video has a file, only one of these should ever be populated per service. Never fill both.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">4</div><div class="sbody"><strong>Update the relevant fields</strong><p>Edit only what needs changing. Refer to the field reference table below for what each field controls and what rules apply.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/9.png" alt="Screenshot 12" loading="lazy"/>
+          <div class="simg-caption">Creative service item open in the right panel. Service Number is 1, Service Name is Creative. Note Service Hero Image is empty and Service Hero Video has a file, only one of these should ever be populated per service. Never fill both.</div>
+        </div></div></div>
         <div class="step"><div class="snum">5</div><div class="sbody"><strong>Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner. Changes go live immediately.</p></div></div>
       </div>
 
@@ -831,7 +898,10 @@
       <h3>Part 1, Create the service in the CMS</h3>
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Open CMS → Services(Beta)</strong><p>Click the <span class="pill">CMS</span> icon, then select <span class="pill">Services(Beta)</span> from the Collections list.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Click "+ New Item" in the top toolbar</strong><p>A blank item opens in the right panel. Service Number defaults to 0.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: CMS top toolbar with New Item button highlighted, blank right panel open with empty fields]</p></div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Click "+ New Item" in the top toolbar</strong><p>A blank item opens in the right panel. Service Number defaults to 0.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/10.png" alt="Screenshot 13" loading="lazy"/>
+          <div class="simg-caption">New Item created in the Services CMS. All fields are blank and Service Number defaults to 0. Set a unique Service Number first, then fill in all other fields before clicking Save Draft.</div>
+        </div></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Set a unique Service Number</strong><p>Use the next available number. Currently 1–6 are in use. For a 7th service use 7. This number is the binding key, it must be unique and must never be reused.</p></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Fill in all required fields</strong><p>Add Service Thumbnail, Service Name, Hero Image or Video (not both), Services (Listed), Content 1/2/3, and portfolio Images or Videos (not both per slot). Refer to the field reference table above.</p></div></div>
         <div class="step"><div class="snum">5</div><div class="sbody"><strong>Set the Slug</strong><p>Use lowercase letters and hyphens only, no spaces (e.g. <span class="pill">brand-strategy</span>). Once published this cannot be changed without serious SEO consequences, see the slug warning above.</p></div></div>
@@ -840,14 +910,38 @@
 
       <h3>Part 2, Add and bind the card on the homepage canvas</h3>
       <div class="steps">
-        <div class="step"><div class="snum">7</div><div class="sbody"><strong>Close the CMS panel and go to the Home page canvas</strong><p>Press Escape or click the back arrow in the CMS panel. Confirm <span class="pill">Home</span> is selected in the Pages panel.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Framer canvas with Home page open and Layers tab active in the left panel]</p></div></div></div>
-        <div class="step"><div class="snum">8</div><div class="sbody"><strong>In the Layers panel expand: Main → Services → Card</strong><p>You'll see Image 1 through Image 6, each represents one service card on the homepage.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Layers panel expanded showing Main → Services → Card with Image 1 through Image 6 visible]</p></div></div></div>
-        <div class="step"><div class="snum">9</div><div class="sbody"><strong>Select Image 1 and duplicate it</strong><p>Click <span class="pill">Image 1</span> in the Layers panel. Right-click and choose <span class="pill">Duplicate</span> or press <span class="pill">⌘D</span>. A copy appears in the layer list.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right-click context menu on Image 1 in the Layers panel, Duplicate option highlighted in blue]</p></div></div></div>
-        <div class="step"><div class="snum">10</div><div class="sbody"><strong>Reposition the duplicated card after Image 6</strong><p>Drag it in the Layers panel or use arrow keys to place it after Image 6 in the stack.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Layers panel showing the duplicated Image layer being dragged to sit below Image 6]</p></div></div></div>
-        <div class="step"><div class="snum">11</div><div class="sbody"><strong>In the right panel set the Title and Amount fields</strong><p>Under the <span class="pill">Services Image</span> component settings, set <span class="pill">Title</span> to the new service name (e.g. Branding) and set <span class="pill">Amount</span> to match the CMS Service Number from Part 1 (e.g. 7).</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right panel showing the Services Image component with Title field set to the new service name and Amount field set to the new service number]</p></div></div></div>
-        <div class="step"><div class="snum">12</div><div class="sbody"><strong>Expand the duplicated card in Layers and click the Services(Beta) layer inside it</strong><p>Expand your new Image block → expand the inner collection → click the <span class="pill">Services(Beta)</span> layer.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Layers panel expanded inside the duplicated card, Services(Beta) collection layer selected and highlighted in blue]</p></div></div></div>
-        <div class="step"><div class="snum">13</div><div class="sbody"><strong>In the right panel under Content → Filters, update the Value</strong><p>You'll see: Field = <span class="pill">Service Number</span>, Equals, Value = [a number]. Change the Value to your new service's number (e.g. 7). Leave <span class="pill">Limit to: 1</span> unchanged.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right panel showing the Content section with Filters expanded, Field set to Service Number, Value field highlighted showing the updated number]</p></div></div></div>
-        <div class="step"><div class="snum">14</div><div class="sbody"><strong>Verify the card shows the correct service on the canvas</strong><p>The card should now display the new service thumbnail and name from the CMS. If it shows the wrong service, double-check that the Filter Value matches the CMS Service Number exactly.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Homepage canvas with the new service card appearing correctly in the scrolling services section, correct thumbnail and name visible]</p></div></div></div>
+        <div class="step"><div class="snum">7</div><div class="sbody"><strong>Close the CMS panel and go to the Home page canvas</strong><p>Press Escape or click the back arrow in the CMS panel. Confirm <span class="pill">Home</span> is selected in the Pages panel.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/11.png" alt="Screenshot 14" loading="lazy"/>
+          <div class="simg-caption">Layers panel expanded on the Home page showing Main > Services > Card with Image 1 through Image 6 visible. Each Image layer represents one service card on the homepage. Image 1 is expanded to show its inner structure.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">8</div><div class="sbody"><strong>In the Layers panel expand: Main → Services → Card</strong><p>You'll see Image 1 through Image 6, each represents one service card on the homepage.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/11.png" alt="Screenshot 15" loading="lazy"/>
+          <div class="simg-caption">Layers panel expanded on the Home page showing Main > Services > Card with Image 1 through Image 6 visible. Each Image layer represents one service card on the homepage. Image 1 is expanded to show its inner structure.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">9</div><div class="sbody"><strong>Select Image 1 and duplicate it</strong><p>Click <span class="pill">Image 1</span> in the Layers panel. Right-click and choose <span class="pill">Duplicate</span> or press <span class="pill">⌘D</span>. A copy appears in the layer list.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/12.png" alt="Screenshot 16" loading="lazy"/>
+          <div class="simg-caption">Right-click context menu open on Image 1 in the Layers panel. Duplicate is highlighted in blue with the Cmd+D shortcut. Click Duplicate to create a copy of this service card.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">10</div><div class="sbody"><strong>Reposition the duplicated card after Image 6</strong><p>Drag it in the Layers panel or use arrow keys to place it after Image 6 in the stack.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/14.png" alt="Screenshot 17" loading="lazy"/>
+          <div class="simg-caption">Layers panel showing Image 7 (the duplicated card) expanded below Image 6. Services (Live)s collection layer is selected inside it, this is the layer to click before adjusting the Filter in the right panel.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">11</div><div class="sbody"><strong>In the right panel set the Title and Amount fields</strong><p>Under the <span class="pill">Services Image</span> component settings, set <span class="pill">Title</span> to the new service name (e.g. Branding) and set <span class="pill">Amount</span> to match the CMS Service Number from Part 1 (e.g. 7).</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/13.png" alt="Screenshot 18" loading="lazy"/>
+          <div class="simg-caption">The duplicated card is now visible as a new entry on canvas labelled '7 Create A Service'. Right panel shows the Services Image component with Amount set to 7 and Title set to 'Create A Service'. This confirms the card is correctly bound to the new service.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">12</div><div class="sbody"><strong>Expand the duplicated card in Layers and click the Services(Beta) layer inside it</strong><p>Expand your new Image block → expand the inner collection → click the <span class="pill">Services(Beta)</span> layer.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/14.png" alt="Screenshot 19" loading="lazy"/>
+          <div class="simg-caption">Layers panel showing Image 7 (the duplicated card) expanded below Image 6. Services (Live)s collection layer is selected inside it, this is the layer to click before adjusting the Filter in the right panel.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">13</div><div class="sbody"><strong>In the right panel under Content → Filters, update the Value</strong><p>You'll see: Field = <span class="pill">Service Number</span>, Equals, Value = [a number]. Change the Value to your new service's number (e.g. 7). Leave <span class="pill">Limit to: 1</span> unchanged.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/26.png" alt="Screenshot 20" loading="lazy"/>
+          <div class="simg-caption">Filter popup open for the duplicated service card. Field is set to Service Number, condition is Equals, Value is set to 7, this matches the Service Number assigned in the CMS. Limit to is set to 1. Always set Value to match the exact Service Number of the new service created in Step 3. Never change the filter on existing cards (Image 1 through Image 6).</div>
+        </div></div></div>
+        <div class="step"><div class="snum">14</div><div class="sbody"><strong>Verify the card shows the correct service on the canvas</strong><p>The card should now display the new service thumbnail and name from the CMS. If it shows the wrong service, double-check that the Filter Value matches the CMS Service Number exactly.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/13.png" alt="Screenshot 21" loading="lazy"/>
+          <div class="simg-caption">The duplicated card is now visible as a new entry on canvas labelled '7 Create A Service'. Right panel shows the Services Image component with Amount set to 7 and Title set to 'Create A Service'. This confirms the card is correctly bound to the new service.</div>
+        </div></div></div>
         <div class="step"><div class="snum">15</div><div class="sbody"><strong>Publish</strong><p>Once the card looks correct, click <span class="pill">Publish</span> to push everything live.</p></div></div>
       </div>
       <div class="callout danger"><div class="ci">🚫</div><div class="cb"><strong>Never change the Filter value on an existing card</strong><p>Cards Image 1 through Image 6 are already correctly bound to their CMS items. Only change the Filter value on newly duplicated cards. Changing an existing card's filter will break the homepage service showcase.</p></div></div>
@@ -860,7 +954,10 @@
       <p>Below the full services showcase, a single-sentence brand statement introduces the studio. Currently: <em>"Yoshi is a global content studio delivering end-to-end brand narratives through strategic clarity and refined execution."</em></p>
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Scroll to the About section or use the Layers panel</strong><p>In Layers expand <span class="pill">Main</span> → <span class="pill">About</span> → <span class="pill">About Content</span> → <span class="pill">Content</span> and click the <span class="pill">Yoshi is a…</span> text layer.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the text on the canvas to enter edit mode</strong><p>Type your updated copy directly.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: About text double-clicked on canvas in edit mode, cursor visible inside the text block with selection handles around it]</p></div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the text on the canvas to enter edit mode</strong><p>Type your updated copy directly.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/15.png" alt="Screenshot 22" loading="lazy"/>
+          <div class="simg-caption">About text selected on canvas in edit mode. Blue bounding box around the text. Layers panel shows the text layer selected inside About > About Content > Content. Double-click to edit, only change the words, never the text style.</div>
+        </div></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click outside to deselect, check all breakpoints, then Publish</strong><p>Click <span class="pill">Publish</span> once confirmed.</p></div></div>
       </div>
       <div class="bp-box">
@@ -958,10 +1055,16 @@
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Publish your post on Substack first</strong><p>The feed updates automatically within a few minutes of publishing.</p></div></div>
         <div class="step"><div class="snum">2</div><div class="sbody"><strong>Open the Framer editor and go to the Home page</strong><p>Scroll down to the (in)sights section on the Desktop canvas.</p></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click the feed grid to select the SubstackFeed component</strong><p>The right panel shows Image 1, Image 2, Image 3 slots alongside the other controls.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: SubstackFeed component selected on Desktop canvas, right panel showing Image 1, 2, 3 upload slots]</p></div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Click the feed grid to select the SubstackFeed component</strong><p>The right panel shows Image 1, Image 2, Image 3 slots alongside the other controls.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/16.png" alt="Screenshot 23" loading="lazy"/>
+          <div class="simg-caption">SubstackFeed component selected on the Desktop canvas. Right panel shows all controls. Key settings: Manual First is Yes, always keep this on. Image 1, Image 2, Image 3 Upload slots are shown, use these to override RSS images when needed.</div>
+        </div></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Check whether the images look correct</strong><p>If the RSS images look fine, no action needed. If an image is missing, slow to load, or badly cropped, upload an override.</p></div></div>
         <div class="step"><div class="snum">5</div><div class="sbody"><strong>Click Upload next to the relevant Image slot</strong><p>Image 1 = first card position, Image 2 = second, Image 3 = third. Upload a clean, well-cropped image.</p></div></div>
-        <div class="step"><div class="snum">6</div><div class="sbody"><strong>Switch to the Phone breakpoint and update the Mobile component</strong><p>Select the <span class="pill">SubstackFeedMobile</span> component and update its image slots independently.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Phone breakpoint canvas with SubstackFeedMobile selected, right panel showing Mobile image upload slots]</p></div></div></div>
+        <div class="step"><div class="snum">6</div><div class="sbody"><strong>Switch to the Phone breakpoint and update the Mobile component</strong><p>Select the <span class="pill">SubstackFeedMobile</span> component and update its image slots independently.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/17.png" alt="Screenshot 24" loading="lazy"/>
+          <div class="simg-caption">Phone breakpoint canvas with SubstackFeedMobile component selected. Right panel shows the mobile-specific controls including Img W (180), Img H (120), Row Gap (28) and Card Gap (18). Image 1, 2, 3 Upload slots are independent from the Desktop component, update both separately.</div>
+        </div></div></div>
         <div class="step"><div class="snum">7</div><div class="sbody"><strong>Publish</strong><p>Click <span class="pill">Publish</span>. Changes go live immediately.</p></div></div>
       </div>
       <div class="callout tip"><div class="ci">💡</div><div class="cb"><strong>Leaving an image slot empty is perfectly fine</strong><p>If you don't upload an override, the component automatically tries the RSS image, then the fallback. Only upload manually when the automatic result looks wrong.</p></div></div>
@@ -1040,7 +1143,10 @@
       <p>The number shown in brackets next to the page heading (e.g. "(6)") is a plain text layer on the canvas. It does not update automatically and must be edited manually whenever a service is added or removed.</p>
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the Services page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">/services-2</span>.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the count text on the canvas</strong><p>Click once to select, then double-click to enter edit mode. The cursor will appear inside the text.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Services page canvas with the count text double-clicked in edit mode, e.g. "(6)" with cursor visible]</p></div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the count text on the canvas</strong><p>Click once to select, then double-click to enter edit mode. The cursor will appear inside the text.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/18.png" alt="Screenshot 25" loading="lazy"/>
+          <div class="simg-caption">Services page (/services-2) showing both Desktop and Tablet breakpoints. The count '(6)' is visible next to the Services heading, this is a plain text layer. Double-click it on the canvas to update the number when services are added or removed.</div>
+        </div></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Update the number</strong><p>Change the number to reflect the current total of published services. Keep the brackets, only change the number inside them.</p></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Click outside to deselect, then check all breakpoints</strong><p>Confirm it looks correct on Tablet and Phone canvases.</p></div></div>
         <div class="step"><div class="snum">5</div><div class="sbody"><strong>Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
@@ -1172,9 +1278,15 @@
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Publish your post on Substack</strong><p>Write and publish your article as normal. The Ardent proxy server detects it and the blog page updates automatically within minutes.</p></div></div>
         <div class="step"><div class="snum">2</div><div class="sbody"><strong>Check the blog page on your live site</strong><p>Navigate to the (in)sights page and confirm the new article is visible and the image looks correct.</p></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>If the image needs replacing, open the Framer editor</strong><p>Go to the <span class="pill">/blog</span> page. Select the <span class="pill">YoshiFeedDesktop</span> component on the Desktop canvas.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Blog page canvas with YoshiFeedDesktop selected, right panel showing Manual First toggle and Image 1-15 slots]</p></div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>If the image needs replacing, open the Framer editor</strong><p>Go to the <span class="pill">/blog</span> page. Select the <span class="pill">YoshiFeedDesktop</span> component on the Desktop canvas.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/19.png" alt="Screenshot 26" loading="lazy"/>
+          <div class="simg-caption">Blog page with YoshiFeedDesktop selected. Right panel shows all feed controls. Key fields: Manual First (Yes), always keep on. Image 1 through Image 4 Upload slots visible, use these to override proxy images after each new Substack post.</div>
+        </div></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Upload a manual image for the relevant slot</strong><p>Image 1 = first card position, Image 2 = second, and so on. Upload a clean, well-cropped JPG or WebP image.</p></div></div>
-        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Switch to the Phone breakpoint and repeat for the Mobile component</strong><p>Select the <span class="pill">YoshiFeedMobile</span> component and upload the same image into the matching slot.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Phone breakpoint canvas with YoshiFeedMobile selected, right panel showing matching image slots]</p></div></div></div>
+        <div class="step"><div class="snum">5</div><div class="sbody"><strong>Switch to the Phone breakpoint and repeat for the Mobile component</strong><p>Select the <span class="pill">YoshiFeedMobile</span> component and upload the same image into the matching slot.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/20.png" alt="Screenshot 27" loading="lazy"/>
+          <div class="simg-caption">Phone breakpoint with YoshiFeedMobile selected. Right panel shows 15 image upload slots (Image 1 through Image 10 visible, more below). Always update both Desktop and Mobile feed components when uploading manual images, they are independent.</div>
+        </div></div></div>
         <div class="step"><div class="snum">6</div><div class="sbody"><strong>Publish in Framer</strong><p>Only needed if you uploaded manual images. Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
       </div>
       <div class="callout warning"><div class="ci">⚠️</div><div class="cb"><strong>Review image slots after every new post</strong><p>Images are position-based. When a new post becomes the latest article, all card positions shift by one. Always review all slots after publishing a new post.</p></div></div>
@@ -1244,8 +1356,14 @@
       <h3>How to edit the headline</h3>
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the About page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">/about</span>.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Click the animated headline on the canvas to select it</strong><p>The right panel will show the <span class="pill">InlineTextCycler</span> component controls.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: About page canvas with the headline component selected, right panel showing Before, Words, After fields]</p></div></div></div>
-        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Update the Before, Words, and After fields</strong><p>These three fields together build the full headline. See the field guide below for exactly how each works.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right panel closeup showing Before text area, Words field, and After text area with current values]</p></div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Click the animated headline on the canvas to select it</strong><p>The right panel will show the <span class="pill">InlineTextCycler</span> component controls.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/21.png" alt="Screenshot 28" loading="lazy"/>
+          <div class="simg-caption">About page with InlineTextCycler component selected. Right panel shows all three editable fields: Before ('A _MULTIDISCIPLINARY_ STUDIO FOR'), Words ('CONTENT CREATI...'), After ('WITH BOTH _IN-HOUSE & EXTERNAL TALENT_'). Edit only these three fields to update the headline, use _underscores_ for italic text.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">3</div><div class="sbody"><strong>Update the Before, Words, and After fields</strong><p>These three fields together build the full headline. See the field guide below for exactly how each works.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/21.png" alt="Screenshot 29" loading="lazy"/>
+          <div class="simg-caption">About page with InlineTextCycler component selected. Right panel shows all three editable fields: Before ('A _MULTIDISCIPLINARY_ STUDIO FOR'), Words ('CONTENT CREATI...'), After ('WITH BOTH _IN-HOUSE & EXTERNAL TALENT_'). Edit only these three fields to update the headline, use _underscores_ for italic text.</div>
+        </div></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Switch to the Phone breakpoint and repeat for InlineTextCyclerMobile</strong><p>Select the mobile version of the component and update the same three fields to match.</p></div></div>
         <div class="step"><div class="snum">5</div><div class="sbody"><strong>Check all breakpoints then Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
       </div>
@@ -1329,7 +1447,10 @@
       </div>
       <h3>Replacing the studio image</h3>
       <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Click the studio image on the canvas to select it</strong><p>A blue selection box appears around the image.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Studio image selected on canvas with right panel showing the image asset field]</p></div></div></div>
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Click the studio image on the canvas to select it</strong><p>A blue selection box appears around the image.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/22.png" alt="Screenshot 30" loading="lazy"/>
+          <div class="simg-caption">Studio image selected on canvas. Blue selection handles visible around the photograph. Right panel shows Fill set to Image, click the image thumbnail in the Fill section to replace the photo.</div>
+        </div></div></div>
         <div class="step"><div class="snum">2</div><div class="sbody"><strong>In the right panel click the image thumbnail to open the image editor</strong><p>Click the preview inside the popup and upload your new image.</p></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Check all breakpoints then Publish</strong><p>Click <span class="pill">Publish</span> when confirmed.</p></div></div>
       </div>
@@ -1375,7 +1496,10 @@
       <h3>Editing the intro paragraph and heading</h3>
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the Contact page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">/contact</span>.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the text you want to edit</strong><p>Both the large intro paragraph and the "Get in touch" heading are directly editable. The cursor appears inside the text when in edit mode.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Contact page canvas with the intro paragraph double-clicked and in edit mode]</p></div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the text you want to edit</strong><p>Both the large intro paragraph and the "Get in touch" heading are directly editable. The cursor appears inside the text when in edit mode.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/23.png" alt="Screenshot 31" loading="lazy"/>
+          <div class="simg-caption">Contact page with the intro paragraph text selected. Blue bounding box around the full text block. Right panel shows the Text properties. Double-click on canvas to edit the words, never change the Styles (H2 L) field.</div>
+        </div></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Edit the copy, click outside to deselect, check all breakpoints, then Publish</strong><p>Click <span class="pill">Publish</span> when confirmed.</p></div></div>
       </div>
 
@@ -1392,7 +1516,10 @@
       <p>The placeholder text is the hint text visible inside each form field before the user starts typing (e.g. "Jane Smith", "Number with Country Code"). This can be updated to better guide your enquiries.</p>
 
       <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Click once on the form field placeholder text to select it</strong><p>You may need to click carefully to select the placeholder layer rather than the field container.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: A form field placeholder text selected on canvas with bounding box visible]</p></div></div></div>
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Click once on the form field placeholder text to select it</strong><p>You may need to click carefully to select the placeholder layer rather than the field container.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/24.png" alt="Screenshot 32" loading="lazy"/>
+          <div class="simg-caption">Requirement input field selected on canvas. Right panel shows the Input properties: Type (Text Area), Name (Requirement), Placeholder ('E-Commerce/Soci...'), Required (Yes), Resizable (No). Only ever edit the Placeholder field, never change the Name field or it will break the Notion sync.</div>
+        </div></div></div>
         <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click to enter edit mode and update the text</strong><p>Replace only the placeholder copy. Do not change any styling.</p></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Repeat for any other placeholders you want to update</strong><p>The six placeholders are: Name, Contact Number, Email, Brand Name, Requirement, and Reason for Reaching Out.</p></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Check all breakpoints then Publish</strong><p>Click <span class="pill">Publish</span> when confirmed.</p></div></div>
@@ -1448,7 +1575,10 @@
 
       <div class="steps">
         <div class="step"><div class="snum">1</div><div class="sbody"><strong>Go to the Contact page</strong><p>In the left panel click <span class="pill">Pages</span>, then click <span class="pill">/contact</span>.</p></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the text you want to edit</strong><p>Click once to select, then double-click to enter edit mode.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Intro paragraph double-clicked on canvas in edit mode]</p></div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>Double-click the text you want to edit</strong><p>Click once to select, then double-click to enter edit mode.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/23.png" alt="Screenshot 33" loading="lazy"/>
+          <div class="simg-caption">Contact page with the intro paragraph text selected. Blue bounding box around the full text block. Right panel shows the Text properties. Double-click on canvas to edit the words, never change the Styles (H2 L) field.</div>
+        </div></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Type your updated copy</strong><p>Edit the text as needed. Do not change the font, size, weight, or colour.</p></div></div>
         <div class="step"><div class="snum">4</div><div class="sbody"><strong>Click outside to deselect, check all breakpoints, then Publish</strong><p>Click <span class="pill">Publish</span> when confirmed.</p></div></div>
       </div>
@@ -1473,8 +1603,14 @@
 
       <h3>Editing placeholder text inside a field</h3>
       <div class="steps">
-        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Click the form field on the canvas to select it</strong><p>In the Layers panel it will appear as an <span class="pill">Input</span> layer inside <span class="pill">Form</span>.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: A form input field selected on canvas, right panel showing Type, Name, Placeholder, Required and Resizable fields]</p></div></div></div>
-        <div class="step"><div class="snum">2</div><div class="sbody"><strong>In the right panel, find the Placeholder field and update it</strong><p>Click the <span class="pill">Placeholder</span> field in the right panel and type the new hint text.</p><div class="simg"><div class="si">🖼</div><p>[Screenshot: Right panel closeup with Placeholder field highlighted and being edited]</p></div></div></div>
+        <div class="step"><div class="snum">1</div><div class="sbody"><strong>Click the form field on the canvas to select it</strong><p>In the Layers panel it will appear as an <span class="pill">Input</span> layer inside <span class="pill">Form</span>.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/24.png" alt="Screenshot 34" loading="lazy"/>
+          <div class="simg-caption">Requirement input field selected on canvas. Right panel shows the Input properties: Type (Text Area), Name (Requirement), Placeholder ('E-Commerce/Soci...'), Required (Yes), Resizable (No). Only ever edit the Placeholder field, never change the Name field or it will break the Notion sync.</div>
+        </div></div></div>
+        <div class="step"><div class="snum">2</div><div class="sbody"><strong>In the right panel, find the Placeholder field and update it</strong><p>Click the <span class="pill">Placeholder</span> field in the right panel and type the new hint text.</p><div class="simg-wrap">
+          <img src="https://raw.githubusercontent.com/s-m-69/yoshi-website-handbook/image-resources/25.png" alt="Screenshot 35" loading="lazy"/>
+          <div class="simg-caption">Contact page full canvas view showing Desktop, Tablet and Phone breakpoints side by side. All form fields are visible and consistent across all three screen sizes.</div>
+        </div></div></div>
         <div class="step"><div class="snum">3</div><div class="sbody"><strong>Publish</strong><p>Click <span class="pill">Publish</span> in the top-right corner.</p></div></div>
       </div>
 
@@ -1553,14 +1689,14 @@
               <li><span class="pcheck">✓</span>6 revision sessions per month</li>
               <li><span class="pcheck">✓</span>Everything in Foundation</li>
               <li><span class="pcheck">✓</span>Canvas edits across all pages</li>
-              <li><span class="pcheck">✓</span>1 custom component per month</li>
+              <li><span class="pcheck">✓</span>1 custom TSX component per month</li>
               <li><span class="pcheck">✓</span>Breakpoint QA on all updates</li>
               <li><span class="pcheck">✓</span>24 hour response time</li>
               <li><span class="pcheck">✓</span>WhatsApp support</li>
             </ul>
           </div>
           <div class="pricing-card-foot">
-            <a href="https://api.whatsapp.com/send?phone=919833343343&text=Hi%2C%20I%E2%80%99m%20interested%20in%20the%20Studio%20plan%20for%20*%3CYoshi%20Studio%3E*.%20We%E2%80%99re%20actively%20building%20our%20site%20and%20need%20ongoing%20updates%2C%20component-level%20changes%2C%20and%20faster%20turnaround.%0AWould%20love%20to%20understand%20how%20we%20can%20get%20started%20this%20month." target="_blank" class="pricing-btn whatsapp-priority">
+            <a href="https://wa.me/PLACEHOLDER" target="_blank" class="pricing-btn whatsapp-priority">
               Connect on WhatsApp
             </a>
           </div>
@@ -1587,7 +1723,7 @@
             </ul>
           </div>
           <div class="pricing-card-foot">
-            <a href="https://api.whatsapp.com/send?phone=919833343343&text=Hi%2C%20I%20want%20to%20move%20forward%20with%20the%20Partner%20plan%20for%20*%3CYoshi%20Studio%3E*%0AWe%E2%80%99re%20treating%20our%20website%20as%20a%20core%20business%20asset%20and%20need%20continuous%20support%2C%20new%20builds%2C%20and%20integrations.%0ALet%E2%80%99s%20align%20on%20onboarding%20and%20kick%20this%20off." target="_blank" class="pricing-btn whatsapp">
+            <a href="https://wa.me/PLACEHOLDER" target="_blank" class="pricing-btn whatsapp">
               Connect on WhatsApp
             </a>
           </div>
